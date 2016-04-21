@@ -1,0 +1,17 @@
+[user]
+	email = rupert@rupertb.com
+	name = Rupert Bedford
+[color]
+	ui = auto
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+	renames = copies
+[branch]
+	autosetuprebase = always
+[credential]
+	helper = osxkeychain
