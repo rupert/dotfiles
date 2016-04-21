@@ -1,3 +1,6 @@
+export PATH=~/.local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
 [ -z "$PS1" ] && return
 
 if [ -f /etc/bashrc ]; then
