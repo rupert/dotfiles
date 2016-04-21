@@ -49,9 +49,9 @@ set_prompt() {
 PROMPT_COMMAND='set_prompt'
 
 if [ `uname` == "Darwin" ]; then
-  eval `keychain --eval --agents ssh --inherit any id_rsa`
+  eval `keychain --eval --quiet --agents ssh --inherit any id_rsa`
 else
-  eval `keychain --eval --agents ssh id_rsa`
+  eval `keychain --eval --quiet --agents ssh id_rsa`
 fi
 
 docker_env() {
