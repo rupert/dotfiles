@@ -14,7 +14,7 @@ fi
 export CLICOLOR=1
 export EDITOR=vim
 export PYTHONDONTWRITEBYTECODE=1
-export HISTTIMEFORMAT='%F %T'
+export HISTTIMEFORMAT='%F %T '
 export HISTFILESIZE=
 export TERM=xterm-256color
 export LESS=FRSX
