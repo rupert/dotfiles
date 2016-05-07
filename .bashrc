@@ -54,13 +54,4 @@ else
   eval `keychain --eval --quiet --agents ssh id_rsa`
 fi
 
-docker_env() {
-  if [[ -z "$DOCKER_HOST" ]]; then
-    eval $(docker-machine env dev)
-  fi
-
-  \docker "$@"
-}
-
-alias docker=docker_env
 alias diff=colordiff
