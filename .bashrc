@@ -55,3 +55,4 @@ else
 fi
 
 alias diff=colordiff
+alias ack=ag
