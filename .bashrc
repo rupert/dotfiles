@@ -11,18 +11,20 @@ if [ -e /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
 
+export HISTCONTROL=ignorespace:ignoredups
+export HISTTIMEFORMAT='%F %T '
+export HISTFILESIZE=
+export HISTSIZE=
+
 export CLICOLOR=1
 export EDITOR=vim
 export PYTHONDONTWRITEBYTECODE=1
-export HISTTIMEFORMAT='%F %T '
-export HISTFILESIZE=
 export TERM=xterm-256color
 export LESS=FRSX
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 export HOMEBREW_GITHUB_API_TOKEN=7d1753d57a9fc920f4ab9db590ea8934eb1d06a6
 export GCAL='--cc-holidays=gb_en'
-export HISTCONTROL=ignorespace:ignoredups
 
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
