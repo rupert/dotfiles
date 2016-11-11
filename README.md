@@ -1,19 +1,21 @@
-# OS X
+# dotfiles
+
+## Dependencies
+
+### macOS
 
 ```
-brew install mackup
+brew install stow
 ```
 
-# Ubuntu
+### Ubuntu
 
 ```
-sudo apt-get install git python-pip
-pip install mackup
+sudo apt-get install stow git make
 ```
 
-# Vim
+## Install
 
 ```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+make
 ```

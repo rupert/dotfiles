@@ -3,13 +3,8 @@ export PATH=/usr/local/sbin:$PATH
 
 [ -z "$PS1" ] && return
 
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
-if [ -e /usr/local/etc/bash_completion ]; then
-  . /usr/local/etc/bash_completion
-fi
+[ -e /etc/bashrc ] && . /etc/bashrc
+[ -e /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 export HISTCONTROL=ignorespace:ignoredups
 export HISTTIMEFORMAT='%F %T '
@@ -37,7 +32,7 @@ set_prompt() {
   local white='\[\e[01;37m\]'
   local reset='\[\e[00m\]'
 
-  PS1="$white\\u@\\h$reset $blue\\w$reset "
+  PS1="$white\\h$reset $blue\\w$reset "
 
   if command -v __git_ps1 &> /dev/null; then
     PS1+="$white$(__git_ps1 "%s ")$reset"
@@ -60,3 +55,4 @@ fi
 
 alias diff=colordiff
 alias ack=ag
+alias brew='nice brew'
