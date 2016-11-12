@@ -1,7 +1,9 @@
 programs := $(shell find . -depth 1 -type d -not -name .git)
 vundle := $(HOME)/.vim/bundle/Vundle.vim
+pipsi := $(HOME)/.local/bin/pipsi
+brew := /usr/local/bin/brew
 
-all: $(programs) vundle-plugins
+all: $(programs) vundle-install pipsi-install
 
 $(programs):
 	stow -v -t $(HOME) $@
@@ -12,7 +14,25 @@ $(vundle):
 
 vundle: $(vundle)
 
-vundle-plugins: vundle
+vundle-install: vundle
 	vim +PluginInstall +qall
 
+vundle-update: vundle
+	vim +PluginUpdate +qall
+
+brew-bundle:
+	brew tap homebrew/bundle
+	brew bundle
+
+$(pipsi):
+	curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
+
+pipsi: $(pipsi)
+
+pipsi-install: pipsi
+	sh pipsi.sh
+
+macos: brew-bundle
+
 .PHONY: $(programs)
+.SUFFIXES:
