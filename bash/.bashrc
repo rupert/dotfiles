@@ -11,48 +11,78 @@ export HISTTIMEFORMAT='%F %T '
 export HISTFILESIZE=
 export HISTSIZE=
 
-export CLICOLOR=1
-export EDITOR=vim
-export PYTHONDONTWRITEBYTECODE=1
-export TERM=xterm-256color
-export LESS=FRSX
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
-export HOMEBREW_GITHUB_API_TOKEN=7d1753d57a9fc920f4ab9db590ea8934eb1d06a6
-export GCAL='--cc-holidays=gb_en'
+
+export PYTHONDONTWRITEBYTECODE=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
 
-set_prompt() {
-  local status=$?
-  local red='\[\e[01;31m\]'
-  local green='\[\e[01;32m\]'
-  local blue='\[\e[01;34m\]'
-  local white='\[\e[01;37m\]'
-  local reset='\[\e[00m\]'
+export CLICOLOR=1
+export EDITOR=vim
+export TERM=xterm-256color
+export LESS=FRSX
+export HOMEBREW_GITHUB_API_TOKEN=7d1753d57a9fc920f4ab9db590ea8934eb1d06a6
+export GCAL='--cc-holidays=gb_en'
 
-  PS1="$white\\h$reset $blue\\w$reset "
-
+prompt_git() {
   if command -v __git_ps1 &> /dev/null; then
-    PS1+="$white$(__git_ps1 "%s ")$reset"
-  fi
-
-  if [ $status -eq 0 ]; then
-    PS1+="$white\\\$$reset "
-  else
-    PS1+="$red\\\$$reset "
+    echo -n "$(__git_ps1 ' \033[34m%s\033[37m')"
   fi
 }
 
-PROMPT_COMMAND='set_prompt'
+prompt_virtualenv() {
+  [ -z "$VIRTUAL_ENV" ] && return 0
 
-if [ `uname` == "Darwin" ]; then
-  eval `keychain --eval --quiet --agents ssh --inherit any id_rsa`
+  echo -n ' '
+  echo -n $'\033[33m'
+  echo -n "$(basename "$VIRTUAL_ENV")"
+  echo -n $'\033[37m'
+}
+
+prompt_user() {
+  [ "$USER" == 'rupert' ] && return
+  [ "$USER" == 'rupert.bedford' ] && return
+
+  if [ $(id -u) == '0' ]; then
+    echo -n $'\033[31m'
+  else
+    echo -n $'\033[35m'
+  fi
+
+  echo -n "$USER"
+  echo -n $'\033[37m'
+  echo -n ' '
+}
+
+EXIT_CODE=0
+
+prompt_command() {
+  EXIT_CODE=$?
+}
+
+prompt_exit() {
+  if [ $EXIT_CODE != 0 ]; then
+    echo -n ' '
+    echo -n $'\033[31m'
+    echo -n "($EXIT_CODE)"
+    echo -n $'\033[37m'
+  fi
+}
+
+export PS1='\n$(prompt_user)\e[36m\h\e[37m \e[32m\w\e[37m$(prompt_virtualenv)$(prompt_git)$(prompt_exit)\n\$ '
+
+PROMPT_COMMAND=prompt_command
+
+if [ $(uname) == Darwin ]; then
+  eval $(keychain --eval --quiet --agents ssh --inherit any id_rsa)
 else
-  eval `keychain --eval --quiet --agents ssh id_rsa`
+  eval $(keychain --eval --quiet --agents ssh id_rsa)
 fi
 
 alias diff=colordiff
 alias ack=ag
-alias brew='nice brew'
+alias git=hub
+alias python=python3
