@@ -72,7 +72,7 @@ prompt_exit() {
   fi
 }
 
-export PS1='\n$(prompt_user)\e[36m\h\e[37m \e[32m\w\e[37m$(prompt_virtualenv)$(prompt_git)$(prompt_exit)\n\$ '
+export PS1='\e[0m\n$(prompt_user)\e[36m\h\e[37m \e[32m\w\e[37m$(prompt_virtualenv)$(prompt_git)$(prompt_exit)\n\$ '
 
 PROMPT_COMMAND=prompt_command
 
