@@ -43,8 +43,8 @@ prompt_virtualenv() {
 }
 
 prompt_user() {
-  [ "$USER" == 'rupert' ] && return
-  [ "$USER" == 'rupert.bedford' ] && return
+  [ "$USER" == 'rupert' ] && return 0
+  [ "$USER" == 'rupert.bedford' ] && return 0
 
   if [ $(id -u) == '0' ]; then
     echo -n $'\033[31m'
