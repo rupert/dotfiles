@@ -17,6 +17,8 @@ export GREP_COLOR='1;32'
 export PYTHONDONTWRITEBYTECODE=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
 export PROMPT_DIRTRIM=3
 export GIT_PS1_SHOWDIRTYSTATE=1
 
