@@ -11,3 +11,4 @@ package coursera-dl
 package httpie
 package pygments
 package stapler
+package virtualenvwrapper
