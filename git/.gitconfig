@@ -17,3 +17,5 @@
 	helper = osxkeychain
 [alias]
 	st = status -sb
+[core]
+	excludesfile = ~/.gitignore_global
