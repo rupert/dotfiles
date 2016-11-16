@@ -91,5 +91,3 @@ fi
 alias diff=colordiff
 alias ack=ag
 alias git=hub
-alias python=python3
-alias pip=pip3
