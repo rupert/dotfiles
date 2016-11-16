@@ -18,3 +18,5 @@
 	st = status -sb
 [core]
 	excludesfile = ~/.gitignore_global
+[help]
+	autocorrect = 1
