@@ -1,6 +1,5 @@
-[user]
-	email = rupert@rupertb.com
-	name = Rupert Bedford
+[include]
+	path = ~/.gitconfig_local
 [color]
 	ui = auto
 [push]
