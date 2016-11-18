@@ -6,7 +6,7 @@ brew := /usr/local/bin/brew
 all: $(programs) vundle-install pipsi-install
 
 $(programs):
-	stow -v --ignore '\.example$$' -n -t $(HOME) $@
+	stow -v --ignore '\.example$$' -t $(HOME) $@
 
 $(vundle):
 	mkdir -p $(HOME)/.vim/bundle
