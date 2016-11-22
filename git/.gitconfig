@@ -15,7 +15,10 @@
 [credential]
 	helper = osxkeychain
 [alias]
-	st = status -sb
+	ap = add --patch
+	cm = commit --message
+	ds = diff --staged
+	st = status --short --branch
 [core]
 	excludesfile = ~/.gitignore_global
 [help]

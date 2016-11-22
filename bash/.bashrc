@@ -91,3 +91,4 @@ fi
 alias diff=colordiff
 alias ack=ag
 alias git=hub
+alias g=git
