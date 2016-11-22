@@ -8,6 +8,7 @@ package() {
 }
 
 package coursera-dl
+package flake8
 package httpie
 package pygments
 package stapler
