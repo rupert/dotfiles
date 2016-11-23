@@ -32,11 +32,11 @@ pipsi: $(pipsi)
 pipsi-install: pipsi
 	sh pipsi.sh
 
-atom-packages:
+apm-install:
 # apm list --installed --bare > atom-packages.txt
 	apm install --packages-file atom-packages.txt
 
-macos: brew-bundle
+macos: brew-bundle apm-install
 	pip3 install virtualenv
 
 .PHONY: $(programs)
