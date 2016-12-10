@@ -10,6 +10,11 @@ sublime-preamble:
 
 sublime: sublime-preamble
 
+keychain-preamble:
+	mkdir -p '$(HOME)/.local/bin'
+
+keychain: keychain-preamble
+
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
 
