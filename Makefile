@@ -5,6 +5,11 @@ brew := /usr/local/bin/brew
 
 all: $(programs) vundle-install pipsi-install
 
+sublime-preamble:
+	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
+
+sublime: sublime-preamble
+
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
 
