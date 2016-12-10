@@ -6,6 +6,7 @@ package() {
   [ -e "$HOME/.local/venvs/$1" ] || pipsi install "$1"
 }
 
+package csvkit
 package coursera-dl
 package flake8
 package httpie
