@@ -42,7 +42,7 @@ pipsi: $(pipsi)
 pipsi-install: pipsi
 	sh pipsi.sh
 
-macos: brew-bundle apm-install
+macos: brew-bundle
 	pip3 install virtualenv
 
 .PHONY: $(programs)
