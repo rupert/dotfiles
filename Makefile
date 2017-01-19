@@ -1,12 +1,13 @@
 programs := $(shell find . -depth 1 -type d -not -name .git)
 vundle := $(HOME)/.vim/bundle/Vundle.vim
 pipsi := $(HOME)/.local/bin/pipsi
-brew := /usr/local/bin/brew
 
 all: $(programs) vundle-install pipsi-install
 
 sublime-preamble:
 	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
+	mkdir -p '$(HOME)/.local/bin'
+	ln -sf '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' '$(HOME)/.local/bin/subl'
 
 sublime: sublime-preamble
 
