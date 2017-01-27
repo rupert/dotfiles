@@ -19,6 +19,7 @@
 	cm = commit --message
 	ds = diff --staged
 	st = status --short --branch
+	undo = reset --soft HEAD~
 [core]
 	excludesfile = ~/.gitignore_global
 [help]
