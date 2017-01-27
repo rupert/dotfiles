@@ -35,3 +35,6 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'youtube-dl'
+
+tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
+brew 'burntsushi/ripgrep/ripgrep-bin'
