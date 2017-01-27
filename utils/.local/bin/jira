@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+issue=$(git symbolic-ref --short HEAD | perl -ne '/([A-Z]+-[0-9]+)$/ and print $1')
+
+if [[ -n $issue ]]; then
+    url="https://babylonpartners.atlassian.net/browse/$issue"
+    echo "$url"
+    open "$url"
+else
+    exit 1
+fi
