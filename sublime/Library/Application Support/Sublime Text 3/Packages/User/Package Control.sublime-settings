@@ -5,8 +5,10 @@
 	],
 	"installed_packages":
 	[
+		"Dockerfile Syntax Highlighting",
 		"GitGutter",
 		"Indent XML",
+		"Markdown Extended",
 		"Markdown Preview",
 		"Oceanic Next Color Scheme",
 		"Package Control",
