@@ -2,7 +2,11 @@
 
 set -euo pipefail
 
-issue=$(git symbolic-ref --short HEAD | perl -ne '/([A-Z]+-[0-9]+)$/ and print $1')
+if [ $# -eq 1 ]; then
+    issue=$1
+else
+    issue=$(git symbolic-ref --short HEAD | perl -ne '/([A-Z]+-[0-9]+)$/ and print $1')
+fi
 
 if [[ -n $issue ]]; then
     url="https://babylonpartners.atlassian.net/browse/$issue"
