@@ -10,6 +10,7 @@ package csvkit
 package coursera-dl
 package flake8
 package httpie
+package ipython
 package pygments
 package stapler
 package virtualenvwrapper
