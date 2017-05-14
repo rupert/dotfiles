@@ -41,3 +41,6 @@ brew 'youtube-dl'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'burntsushi/ripgrep/ripgrep-bin'
+
+tap 'restic/restic'
+brew 'restic'
