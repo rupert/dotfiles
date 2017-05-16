@@ -1,5 +1,6 @@
 brew 'android-platform-tools'
 brew 'ant'
+brew 'apgdiff'
 brew 'bash'
 brew 'bash-completion'
 brew 'colordiff'
