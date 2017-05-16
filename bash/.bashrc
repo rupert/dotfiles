@@ -35,7 +35,7 @@ export GCAL='--cc-holidays=gb_en'
 
 prompt_git() {
   if command -v __git_ps1 &> /dev/null; then
-    echo -n "$(__git_ps1 ' \033[0;34m%s\033[0m')"
+    echo -n "$(__git_ps1 ' \001\033[0;34m\002%s\001\033[0m\002')"
   fi
 }
 
@@ -43,9 +43,9 @@ prompt_virtualenv() {
   [ -z "$VIRTUAL_ENV" ] && return 0
 
   echo -n ' '
-  echo -n $'\033[0;33m'
+  echo -ne '\001\e[0;33m\002'
   echo -n "$(basename "$VIRTUAL_ENV")"
-  echo -n $'\033[0m'
+  echo -ne '\001\e[0m\002'
 }
 
 prompt_user() {
@@ -53,13 +53,13 @@ prompt_user() {
   [ "$USER" == 'rupert.bedford' ] && return 0
 
   if [ $(id -u) == '0' ]; then
-    echo -n $'\033[0;31m'
+    echo -ne '\001\e[0;31m\002'
   else
-    echo -n $'\033[0;35m'
+    echo -ne '\001\e[0;35m\002'
   fi
 
   echo -n "$USER"
-  echo -n $'\033[0m'
+  echo -ne '\001\e[0m\002'
   echo -n ' '
 }
 
@@ -72,13 +72,13 @@ prompt_command() {
 prompt_exit() {
   if [ $EXIT_CODE != 0 ]; then
     echo -n ' '
-    echo -n $'\033[0;31m'
+    echo -ne '\001\033[0;31m\002'
     echo -n "($EXIT_CODE)"
-    echo -n $'\033[0m'
+    echo -ne '\001\033[0m\002'
   fi
 }
 
-export PS1='\e[0;32m\w\e[0m$(prompt_virtualenv)$(prompt_git)$(prompt_exit) \$ '
+export PS1='\[\e[0;32m\]\w\[\e[0m\]$(prompt_virtualenv)$(prompt_git)$(prompt_exit) \$ '
 
 PROMPT_COMMAND=prompt_command
 
