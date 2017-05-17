@@ -43,9 +43,9 @@ prompt_virtualenv() {
   [ -z "$VIRTUAL_ENV" ] && return 0
 
   echo -n ' '
-  echo -ne '\001\e[0;33m\002'
+  echo -ne '\001\033[0;33m\002'
   echo -n "$(basename "$VIRTUAL_ENV")"
-  echo -ne '\001\e[0m\002'
+  echo -ne '\001\033[0m\002'
 }
 
 prompt_user() {
@@ -53,13 +53,13 @@ prompt_user() {
   [ "$USER" == 'rupert.bedford' ] && return 0
 
   if [ $(id -u) == '0' ]; then
-    echo -ne '\001\e[0;31m\002'
+    echo -ne '\001\033[0;31m\002'
   else
-    echo -ne '\001\e[0;35m\002'
+    echo -ne '\001\033[0;35m\002'
   fi
 
   echo -n "$USER"
-  echo -ne '\001\e[0m\002'
+  echo -ne '\001\033[0m\002'
   echo -n ' '
 }
 
@@ -78,7 +78,7 @@ prompt_exit() {
   fi
 }
 
-export PS1='\[\e[0;32m\]\w\[\e[0m\]$(prompt_virtualenv)$(prompt_git)$(prompt_exit) \$ '
+export PS1='\[\033[0;32m\]\w\[\033[0m\]$(prompt_virtualenv)$(prompt_git)$(prompt_exit) \$ '
 
 PROMPT_COMMAND=prompt_command
 
