@@ -16,6 +16,11 @@ keychain-preamble:
 
 keychain: keychain-preamble
 
+pyenv-preamble:
+	mkdir -p '$(HOME)/.pyenv'
+
+pyenv: pyenv-preamble
+
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
 
