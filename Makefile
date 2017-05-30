@@ -49,7 +49,6 @@ pipsi-install: pipsi
 	sh pipsi.sh
 
 macos: brew-bundle
-	pip3 install virtualenv
 
 .PHONY: $(programs)
 .SUFFIXES:
