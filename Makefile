@@ -4,22 +4,22 @@ pipsi := $(HOME)/.local/bin/pipsi
 
 all: $(programs) vundle-install pipsi-install
 
-sublime-preamble:
+sublime-preinstall:
 	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
 	mkdir -p '$(HOME)/.local/bin'
 	ln -sf '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' '$(HOME)/.local/bin/subl'
 
-sublime: sublime-preamble
+sublime: sublime-preinstall
 
-keychain-preamble:
+keychain-preinstall:
 	mkdir -p '$(HOME)/.local/bin'
 
-keychain: keychain-preamble
+keychain: keychain-preinstall
 
-pyenv-preamble:
+pyenv-preinstall:
 	mkdir -p '$(HOME)/.pyenv'
 
-pyenv: pyenv-preamble
+pyenv: pyenv-preinstall
 
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
