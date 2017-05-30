@@ -36,10 +36,6 @@ vundle-install: vundle
 vundle-update: vundle
 	vim +PluginUpdate +qall
 
-brew-bundle:
-	brew tap homebrew/bundle
-	brew bundle
-
 $(pipsi):
 	curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
 
@@ -47,6 +43,10 @@ pipsi: $(pipsi)
 
 pipsi-install: pipsi
 	sh pipsi.sh
+
+brew-bundle:
+	brew tap homebrew/bundle
+	brew bundle
 
 macos: brew-bundle
 
