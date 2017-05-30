@@ -18,7 +18,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENV_PYTHON="$(which python3)"
 export WORKON_HOME=~/envs
-export VIRTUALENVWRAPPER_PYTHON="$(which python3)"
+export VIRTUALENVWRAPPER_PYTHON=~/.local/venvs/virtualenvwrapper/bin/python
 [ -e ~/.local/bin/virtualenvwrapper.sh ] && . ~/.local/bin/virtualenvwrapper.sh
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
