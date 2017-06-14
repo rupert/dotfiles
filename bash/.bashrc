@@ -101,9 +101,9 @@ export PS1='\[\033[0;32m\]\w\[\033[0m\]$(prompt_virtualenv)$(prompt_git)$(prompt
 PROMPT_COMMAND=prompt_command
 
 if [ $(uname) == Darwin ]; then
-  eval $(keychain --eval --quiet --agents ssh --inherit any id_rsa)
+  eval "$(keychain --eval --quiet --agents ssh --inherit any id_rsa)"
 else
-  eval $(keychain --eval --quiet --agents ssh id_rsa)
+  eval "$(keychain --eval --quiet --agents ssh id_rsa)"
 fi
 
 alias diff=colordiff
