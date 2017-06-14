@@ -21,7 +21,23 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENV_PYTHON="$(which python3)"
 export WORKON_HOME=~/envs
 export VIRTUALENVWRAPPER_PYTHON=~/.local/venvs/virtualenvwrapper/bin/python
-[ -e ~/.local/bin/virtualenvwrapper.sh ] && . ~/.local/bin/virtualenvwrapper.sh
+
+# Lazy-load virtualenvwrapper
+if [ -e ~/.local/bin/virtualenvwrapper.sh ]; then
+  load_virtualenvwrapper() {
+    unset -f mkvirtualenv workon
+    . ~/.local/bin/virtualenvwrapper.sh
+    "$@"
+  }
+
+  mkvirtualenv() {
+    load_virtualenvwrapper mkvirtualenv "$@"
+  }
+
+  workon() {
+    load_virtualenvwrapper workon "$@"
+  }
+fi
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
