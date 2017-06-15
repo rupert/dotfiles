@@ -110,3 +110,5 @@ alias diff=colordiff
 alias ack=ag
 alias git=hub
 alias g=git
+
+eval "$(direnv hook bash)"
