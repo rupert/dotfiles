@@ -8,6 +8,7 @@ package() {
 
 package 3 csvkit
 package 3 coursera-dl
+package 3 edx-dl
 package 3 flake8
 package 3 httpie
 package 3 ipython
