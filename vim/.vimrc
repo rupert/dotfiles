@@ -13,7 +13,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'danro/rename.vim'
-Plugin 'scrooloose/nerdtree'
 call vundle#end()
 
 " Turn on syntax highlighting
@@ -86,4 +85,3 @@ set undodir=$HOME/.vim/undo
 
 " Key bindings
 let mapleader=","
-noremap <Leader>n :NERDTreeToggle<cr>
