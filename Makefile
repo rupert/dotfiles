@@ -1,8 +1,8 @@
 programs := $(shell find . -depth 1 -type d -not -name .git)
-vundle := $(HOME)/.vim/bundle/Vundle.vim
+vim_plug := $(HOME)/.vim/autoload/plug.vim
 pipsi := $(HOME)/.local/bin/pipsi
 
-all: $(programs) vundle-install pipsi-install
+all: $(programs) vim-plug-install pipsi-install
 
 sublime-preinstall:
 	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
@@ -24,17 +24,17 @@ pyenv: pyenv-preinstall
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
 
-$(vundle):
-	mkdir -p $(HOME)/.vim/bundle
-	git clone https://github.com/VundleVim/Vundle.vim.git $@
+$(vim_plug):
+	mkdir -p $(HOME)/.vim/autoload
+	curl -fLo $(vim_plug) https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vundle: $(vundle)
+vim-plug: $(vim_plug)
 
-vundle-install: vundle
-	vim +PluginInstall +qall
+vim-plug-install: vim-plug
+	vim +PlugInstall +qall
 
-vundle-update: vundle
-	vim +PluginUpdate +qall
+vim-plug-update: vim-plug
+	vim +PlugUpdate +qall
 
 $(pipsi):
 	curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python

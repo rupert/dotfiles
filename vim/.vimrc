@@ -4,16 +4,12 @@ set nocompatible
 " Required for vundle
 filetype off
 
-" Add vundle to the run-time path
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'tpope/vim-sensible'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'danro/rename.vim'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'kien/ctrlp.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'danro/rename.vim'
+call plug#end()
 
 " Turn on syntax highlighting
 syntax enable
