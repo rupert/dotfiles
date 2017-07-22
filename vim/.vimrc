@@ -9,7 +9,10 @@ Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'danro/rename.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
+
+set updatetime=250
 
 " Turn on syntax highlighting
 syntax enable
