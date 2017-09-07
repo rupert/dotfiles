@@ -11,6 +11,11 @@ sublime-preinstall:
 
 sublime: sublime-preinstall
 
+$(HOME)/.configx:
+	mkdir -p $@
+
+git: $(HOME)/.configx
+
 keychain-preinstall:
 	mkdir -p '$(HOME)/.local/bin'
 
