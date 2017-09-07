@@ -16,11 +16,6 @@ keychain-preinstall:
 
 keychain: keychain-preinstall
 
-pyenv-preinstall:
-	mkdir -p '$(HOME)/.pyenv'
-
-pyenv: pyenv-preinstall
-
 $(programs):
 	stow -v --ignore '\.example$$' -t $(HOME) $@
 

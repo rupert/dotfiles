@@ -14,8 +14,6 @@ export HISTSIZE=
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
-eval "$(pyenv init -)"
-
 export PYTHONDONTWRITEBYTECODE=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VIRTUALENV_PYTHON="$(which python3)"
