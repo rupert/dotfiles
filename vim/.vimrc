@@ -1,86 +1,69 @@
-" Use vim settings (not vi)
-set nocompatible
+" ]m [m ]M [M } { a A i I o O n N
+" y yy p P
+" gt gT gg gG
+" <c-f> <c-b> <c-o> <c-i>
+" <c-w> <c-w>
+" <c-w> <c-q>
 
-" Required for vundle
-filetype off
+set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
-Plug 'kien/ctrlp.vim'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'danro/rename.vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-eunuch'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set updatetime=250
 
-" Turn on syntax highlighting
-syntax enable
+if has('gui')
+    colorscheme Mariana
+else
+    syntax enable
+    set background=dark
+endif
 
-" File type based indentation
 filetype plugin indent on
-
-" Number of spaces for a tab
 set tabstop=4
-
-" Number of spaces when using << or >>
 set shiftwidth=4
-
-" Insert spaces instead of tabs
 set expandtab
 
-" Always show 5 lines above / below the current line
 set scrolloff=5
-
-" Always show 5 characters to the left / right
 set sidescrolloff=5
 
-" When opening a file always jump to the last cursor position
-autocmd BufReadPost *
-\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-\   exe "normal! g'\"" |
-\ endif
-
-" No beeps
 set noerrorbells
-
-" Ask for confirmation
 set confirm
-
-" Highlight the current line
-set cursorline
-
-" Highlight search results
 set hlsearch
-
-" Show line numbers
-set number
-
-" Ignore these files when expanding
+set incsearch
 set wildignore=*.o,*.class,*.pyc
 
-" Spell-checking
 set spelllang=en_gb
 autocmd BufNewFile,BufRead *.tex setlocal spell
 autocmd BufNewFile,BufRead *.md setlocal spell
 
-" Markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
-" Use tabs in Makefiles
 autocmd FileType make setlocal noexpandtab
 
-" Show whitespace
 set list!
 set listchars=tab:»·
 
-" Make cursor move as expected with wrapped lines
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" Persistent undo
 set undofile
 set undodir=$HOME/.vim/undo
 
-" Key bindings
+set number
+
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+
 let mapleader=","
+nmap <silent> <leader>t :Files<cr>
+nmap <silent> <leader>r :Tags<cr>
+nmap <silent> <leader>c :nohlsearch<cr>
+
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
