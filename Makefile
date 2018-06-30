@@ -1,8 +1,7 @@
 programs := $(shell find . -depth 1 -type d -not -name .git)
 vim_plug := $(HOME)/.vim/autoload/plug.vim
-pipsi := $(HOME)/.local/bin/pipsi
 
-all: $(programs) vim-plug-install pipsi-install
+all: $(programs) vim-plug-install
 
 sublime-preinstall:
 	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
@@ -35,14 +34,6 @@ vim-plug-install: vim-plug
 
 vim-plug-update: vim-plug
 	vim +PlugUpdate +qall
-
-$(pipsi):
-	curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
-
-pipsi: $(pipsi)
-
-pipsi-install: pipsi
-	sh pipsi.sh
 
 brew-bundle:
 	brew tap homebrew/bundle
