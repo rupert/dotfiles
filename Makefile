@@ -1,6 +1,6 @@
 UNAME := $(shell sh -c 'uname -s 2>/dev/null || echo other')
 
-PROJECTS = git keychain tmux vim
+PROJECTS = fish git keychain tmux utils vim
 
 ifeq ($(UNAME),Darwin)
 	PROJECTS += homebrew vscode
