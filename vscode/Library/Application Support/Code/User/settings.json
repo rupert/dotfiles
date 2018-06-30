@@ -9,6 +9,7 @@
     ],
     "python.venvPath": "~/.virtualenvs",
     "python.linting.pylintEnabled": false,
+    "python.formatting.provider": "black",
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code'",
     "workbench.colorTheme": "Atom One Dark",
