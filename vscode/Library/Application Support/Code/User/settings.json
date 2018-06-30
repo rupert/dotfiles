@@ -15,5 +15,7 @@
     "workbench.colorTheme": "Atom One Dark",
     "workbench.iconTheme": "file-icons",
     "openInGitHub.useCommitSHAInURL": true,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true
 }
