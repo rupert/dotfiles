@@ -12,5 +12,6 @@
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code'",
     "workbench.colorTheme": "Atom One Dark",
-    "workbench.iconTheme": "file-icons"
+    "workbench.iconTheme": "file-icons",
+    "openInGitHub.useCommitSHAInURL": true
 }
