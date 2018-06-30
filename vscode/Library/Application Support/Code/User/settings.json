@@ -1,0 +1,16 @@
+{
+    "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [
+        80
+    ],
+    "python.venvPath": "~/.virtualenvs",
+    "python.linting.pylintEnabled": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Fira Code'",
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "file-icons"
+}
