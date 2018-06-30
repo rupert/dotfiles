@@ -1,45 +1,14 @@
-programs := $(shell find . -depth 1 -type d -not -name .git)
-vim_plug := $(HOME)/.vim/autoload/plug.vim
+UNAME := $(shell sh -c 'uname -s 2>/dev/null || echo other')
 
-all: $(programs) vim-plug-install
+PROJECTS = git keychain tmux vim
 
-sublime-preinstall:
-	mkdir -p '$(HOME)/Library/Application Support/Sublime Text 3/Packages'
-	mkdir -p '$(HOME)/.local/bin'
-	ln -sf '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' '$(HOME)/.local/bin/subl'
+ifeq ($(UNAME),Darwin)
+	PROJECTS += homebrew vscode
+endif
 
-sublime: sublime-preinstall
+install: $(PROJECTS)
 
-$(HOME)/.config:
-	mkdir -p $@
+$(PROJECTS):
+	$(MAKE) -C $@
 
-git: $(HOME)/.config
-
-keychain-preinstall:
-	mkdir -p '$(HOME)/.local/bin'
-
-keychain: keychain-preinstall
-
-$(programs):
-	stow -v --ignore '\.example$$' -t $(HOME) $@
-
-$(vim_plug):
-	mkdir -p $(HOME)/.vim/autoload
-	curl -fLo $(vim_plug) https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-vim-plug: $(vim_plug)
-
-vim-plug-install: vim-plug
-	vim +PlugInstall +qall
-
-vim-plug-update: vim-plug
-	vim +PlugUpdate +qall
-
-brew-bundle:
-	brew tap homebrew/bundle
-	brew bundle
-
-macos: brew-bundle
-
-.PHONY: $(programs)
-.SUFFIXES:
+.PHONY: $(PROJECTS)
