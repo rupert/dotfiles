@@ -24,3 +24,7 @@
 [user]
 	name = Rupert Bedford
 	email = rupert@rupertb.com
+[core]
+	editor = /usr/bin/vim
+[submodule]
+	recurse = true
