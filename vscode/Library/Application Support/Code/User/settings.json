@@ -1,6 +1,6 @@
 {
     "extensions.ignoreRecommendations": true,
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "welcomePage",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -17,5 +17,7 @@
     "openInGitHub.useCommitSHAInURL": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "git.enableSmartCommit": true
+    "git.enableSmartCommit": true,
+    "editor.formatOnSave": true,
+    "explorer.confirmDragAndDrop": false
 }
