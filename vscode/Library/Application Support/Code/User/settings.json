@@ -1,6 +1,6 @@
 {
     "extensions.ignoreRecommendations": true,
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "welcomePage",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
@@ -19,8 +19,9 @@
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "window.zoomLevel": 0,
-    "editor.formatOnSave": true,
     "python.unitTest.pyTestArgs": [
         "-v", "--log-cli-level", "info"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "explorer.confirmDragAndDrop": false
 }
