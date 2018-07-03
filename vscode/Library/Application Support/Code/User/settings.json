@@ -17,5 +17,10 @@
     "openInGitHub.useCommitSHAInURL": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "git.enableSmartCommit": true
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 0,
+    "editor.formatOnSave": true,
+    "python.unitTest.pyTestArgs": [
+        "-v", "--log-cli-level", "info"
+    ]
 }
