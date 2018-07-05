@@ -1,3 +1,7 @@
 function kc --description 'Switch between Kubernetes contexts'
-	kubectl config use-context $argv[1]
+	if count $argv >/dev/null
+		kubectl config use-context $argv[1]
+	else
+		kubectl config current-context
+	end
 end
