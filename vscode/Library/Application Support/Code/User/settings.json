@@ -23,5 +23,6 @@
         "-v", "--log-cli-level", "info"
     ],
     "editor.formatOnSave": true,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }
