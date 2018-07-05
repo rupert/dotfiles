@@ -6,4 +6,4 @@ set -gx PATH $PATH ~/.local/bin ~/Library/Python/3.7/bin
 set -gx RIPGREP_CONFIG_PATH ~/.config/rg
 
 eval (direnv hook fish)
-eval (python3 -m virtualfish auto_activation projects)
+eval (/usr/local/bin/python3 -m virtualfish auto_activation projects)
