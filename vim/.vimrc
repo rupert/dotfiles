@@ -1,10 +1,3 @@
-" ]m [m ]M [M } { a A i I o O n N
-" y yy p P
-" gt gT gg gG
-" <c-f> <c-b> <c-o> <c-i>
-" <c-w> <c-w>
-" <c-w> <c-q>
-
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
