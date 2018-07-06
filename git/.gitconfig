@@ -18,7 +18,6 @@
 	ds = diff --staged
 	st = status --short --branch
 	undo = reset --soft HEAD~
-	cleanup = !git branch --merged | egrep -v '(^\\*|master|develop)' | xargs git branch -d
 	up = !git fetch && git rebase --autostash FETCH_HEAD
 [help]
 	autocorrect = 1
