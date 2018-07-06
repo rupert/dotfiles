@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Work on a project
+
+set -euo pipefail
+
+cd ~/Developer
+
+command=(fzf)
+
+if [ -n "${1:-}" ]; then
+    command+=(--query "$1" --select-1)
+fi
+
+project="$(find . -type d -depth 1 -not -name '.*' | sed 's|^\./||' | sort | "${command[@]}")"
+
+code "$project"
