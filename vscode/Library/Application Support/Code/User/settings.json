@@ -20,9 +20,12 @@
     "git.enableSmartCommit": true,
     "window.zoomLevel": 0,
     "python.unitTest.pyTestArgs": [
-        "-v", "--log-cli-level", "info"
+        "-v",
+        "--log-cli-level",
+        "info"
     ],
-    "editor.formatOnSave": true,
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "workbench.statusBar.feedback.visible": false
 }
