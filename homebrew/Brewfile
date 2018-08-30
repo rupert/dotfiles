@@ -42,3 +42,9 @@ brew 'youtube-dl'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'burntsushi/ripgrep/ripgrep-bin'
+
+cask "deluge"
+cask "gpxsee"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
