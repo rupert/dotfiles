@@ -10,6 +10,5 @@ alias chrome "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 eval (direnv hook fish)
 eval (/usr/local/bin/python3 -m virtualfish auto_activation projects)
 
-set PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/shims $PATH
+set -x PATH $HOME/.pyenv/shims $PATH
 pyenv rehash
