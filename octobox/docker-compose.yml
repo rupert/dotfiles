@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:10
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    restart: always
+  redis:
+    image: redis:4
+    restart: always
+  octobox:
+    image: octoboxio/octobox:latest
+    ports:
+      - 5000:5000
+    environment:
+      - RAILS_ENV=development
+      - GITHUB_CLIENT_ID=$GITHUB_CLIENT_ID
+      - GITHUB_CLIENT_SECRET=$GITHUB_CLIENT_SECRET
+      - OCTOBOX_DATABASE_NAME=postgres
+      - OCTOBOX_DATABASE_USERNAME=postgres
+      - OCTOBOX_DATABASE_PASSWORD=password
+      - OCTOBOX_DATABASE_HOST=postgres
+      - OCTOBOX_BACKGROUND_JOBS_ENABLED=1
+      - OCTOBOX_SIDEKIQ_SCHEDULE_ENABLED=1
+      - MINIMUM_REFRESH_INTERVAL=1
+      - FETCH_SUBJECT=1
+      - REDIS_URL=redis://redis
+    restart: always
