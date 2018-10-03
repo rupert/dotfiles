@@ -2,7 +2,7 @@
 
 [Create a GitHub app](https://developer.github.com/apps/building-github-apps/creating-a-github-app/) and set the callback URL to: http://localhost:5000/auth/github/callback
 
-```
+```shell
 env GITHUB_CLIENT_ID=x GITHUB_CLIENT_SECRET=x docker-compose up --detach
 ```
 
