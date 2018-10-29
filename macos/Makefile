@@ -43,6 +43,7 @@ install:
 
 	# Terminal
 	defaults write com.apple.terminal StringEncodings -array 4
+	defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 	# App Store
 	defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
