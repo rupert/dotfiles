@@ -74,5 +74,5 @@ cask 'sonos'
 tap 'caskroom/versions'
 cask 'java8'
 
-mas "Encrypto", id: 935235287
-mas "Things3", id: 904280696
+mas 'Encrypto', id: 935235287
+mas 'Things3', id: 904280696
