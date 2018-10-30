@@ -1,3 +1,6 @@
+work = system("dsconfigad -show | grep --quiet babylonhealth")
+home = !work
+
 brew 'ansible'
 brew 'apgdiff'
 brew 'awscli'
@@ -21,7 +24,7 @@ brew 'hub'
 brew 'imagemagick'
 brew 'jq'
 brew 'kubernetes-cli'
-brew 'ledger'
+brew 'ledger' if home
 brew 'node'
 brew 'readline'
 brew 'pipenv'
@@ -41,7 +44,7 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'yarn'
-brew 'youtube-dl'
+brew 'youtube-dl' if home
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'burntsushi/ripgrep/ripgrep-bin'
@@ -49,31 +52,31 @@ brew 'burntsushi/ripgrep/ripgrep-bin'
 tap 'homebrew/cask-drivers'
 cask '1password'
 cask 'anybar'
-cask 'arq'
+cask 'arq' if home
 cask 'atom'
 cask 'dash'
-cask 'deluge'
+cask 'deluge' if home
 cask 'docker'
-cask 'garmin-express'
+cask 'garmin-express' if home
 cask 'google-chrome'
 cask 'google-hangouts'
-cask 'gpxsee'
+cask 'gpxsee' if home
 cask 'insomnia'
-cask 'musicbrainz-picard'
-cask 'skype'
-cask 'sonos'
+cask 'musicbrainz-picard' if home
+cask 'skype' if work
+cask 'sonos' if home
 cask 'spectacle'
 cask 'spotify'
 cask 'sublime-merge'
 cask 'sublime-text'
 cask 'visual-studio-code'
 cask 'vlc'
-cask 'whatsapp'
-cask 'zoomus'
-cask 'zwift'
+cask 'whatsapp' if home
+cask 'zoomus' if work
+cask 'zwift' if home
 
 tap 'caskroom/versions'
 cask 'java8'
 
-mas 'Encrypto', id: 935235287
+mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
