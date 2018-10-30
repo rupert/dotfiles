@@ -27,5 +27,8 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
-    "workbench.statusBar.feedback.visible": false
+    "workbench.statusBar.feedback.visible": false,
+    "files.associations": {
+        "Brewfile": "ruby"
+    }
 }
