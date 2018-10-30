@@ -78,5 +78,10 @@ cask 'zwift' if home
 tap 'caskroom/versions'
 cask 'java8'
 
+tap 'homebrew/cask-fonts'
+cask 'font-fira-code'
+cask 'font-roboto'
+cask 'font-roboto-mono'
+
 mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
