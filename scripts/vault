@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -euo pipefail
-
-. ~/.vaultrc
-exec /usr/local/bin/vault "$@"
