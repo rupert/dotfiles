@@ -82,6 +82,7 @@ tap 'homebrew/cask-fonts'
 cask 'font-fira-code'
 cask 'font-roboto'
 cask 'font-roboto-mono'
+cask 'font-source-code-pro'
 
 mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
