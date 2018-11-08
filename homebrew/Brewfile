@@ -106,3 +106,6 @@ cask 'font-source-code-pro'
 
 mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
+
+tap 'babylonpartners/babylon'
+# env HOMEBREW_GITHUB_API_TOKEN=<snip> brew install shipcat
