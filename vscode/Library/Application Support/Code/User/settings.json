@@ -30,5 +30,6 @@
     "workbench.statusBar.feedback.visible": false,
     "files.associations": {
         "Brewfile": "ruby"
-    }
+    },
+    "editor.minimap.enabled": false
 }
