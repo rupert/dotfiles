@@ -18,7 +18,6 @@ brew 'curl'
 brew 'dep'
 brew 'diff-so-fancy'
 brew 'direnv'
-brew 'ext4fuse'
 brew 'fd'
 brew 'ffmpeg'
 brew 'fish'
@@ -90,7 +89,6 @@ cask 'gpxsee' if home
 cask 'insomnia'
 cask 'keybase'
 cask 'musicbrainz-picard' if home
-cask 'osxfuse'
 cask 'skype' if work
 cask 'slack' if work
 cask 'sonos' if home
