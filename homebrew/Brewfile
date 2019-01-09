@@ -99,6 +99,7 @@ cask 'sublime-text'
 cask 'virtualbox'
 cask 'visual-studio-code'
 cask 'vlc'
+cask 'wacom-tablet'
 cask 'whatsapp' if home
 cask 'zoomus' if work
 cask 'zwift' if home
