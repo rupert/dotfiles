@@ -116,6 +116,9 @@ cask 'font-source-code-pro'
 tap 'rupert/repo'
 cask 'google-photos-backup'
 
+tap 'rupert/private'
+cask 'mischief-free'
+
 mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
 
