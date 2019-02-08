@@ -2,7 +2,7 @@ set fish_greeting ""
 
 set -x PYTHONPATH ~/Library/Python/3.7/lib/python/site-packages $PYTHONPATH
 set -x PROJECT_HOME ~/Developer
-set -x PATH $PATH ~/.cargo/bin ~/.local/bin ~/Library/Python/3.7/bin ~/Developer/dotfiles/scripts
+set -x PATH ~/.cargo/bin ~/.local/bin ~/Library/Python/3.7/bin ~/Developer/dotfiles/scripts $PATH
 set -x RIPGREP_CONFIG_PATH ~/.config/rg
 
 alias kc kubectx
