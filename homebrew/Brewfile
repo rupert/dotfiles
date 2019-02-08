@@ -114,7 +114,7 @@ cask 'font-roboto-mono'
 cask 'font-source-code-pro'
 
 tap 'rupert/repo'
-cask 'google-photos-backup'
+brew 'google-photos-backup'
 
 tap 'rupert/private'
 cask 'mischief-free'
