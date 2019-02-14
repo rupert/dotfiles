@@ -1,6 +1,13 @@
 work = system("dsconfigad -show | grep --quiet babylonhealth")
 home = !work
 
+tap 'babylonpartners/babylon'
+tap 'rupert/repo'
+tap 'rupert/private'
+tap 'heroku/brew'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
+
 brew 'asciinema'
 brew 'ansible'
 brew 'apgdiff'
@@ -8,10 +15,12 @@ brew 'awscli'
 brew 'bash-completion'
 brew 'bat'
 brew 'bazel'
+brew 'circleci'
+brew 'clang-format'
+brew 'cloc'
 brew 'colordiff'
 brew 'coreutils'
 brew 'cowsay'
-brew 'cloc'
 brew 'ctags'
 brew 'ctop'
 brew 'curl'
@@ -27,6 +36,7 @@ brew 'git'
 brew 'gnuplot'
 brew 'go'
 brew 'go-jira'
+brew 'heroku/brew/heroku'
 brew 'httpie'
 brew 'hub'
 brew 'hugo'
@@ -36,12 +46,16 @@ brew 'keychain'
 brew 'kubectx'
 brew 'kubernetes-cli'
 brew 'lcov'
-brew 'ledger' if home
+brew 'ledger'
+brew 'mas'
 brew 'nmap'
 brew 'node'
 brew 'optipng'
 brew 'readline'
+brew 'restic'
 brew 'rsync'
+brew 'rupert/repo/google-photos-backup'
+brew 'pandoc'
 brew 'pgcli'
 brew 'pipenv'
 brew 'postgresql'
@@ -68,11 +82,13 @@ brew 'watch'
 brew 'webpack'
 brew 'wget'
 brew 'yarn'
-brew 'youtube-dl' if home
+brew 'youtube-dl'
+brew 'zbar'
 
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 brew 'burntsushi/ripgrep/ripgrep-bin'
 
+tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 cask '1password'
 cask 'anybar'
@@ -82,13 +98,22 @@ cask 'dash'
 cask 'deluge' if home
 cask 'docker'
 cask 'etcher'
+cask 'font-fira-code'
+cask 'font-roboto'
+cask 'font-roboto-mono'
+cask 'font-source-code-pro'
 cask 'garmin-express' if home
 cask 'google-chrome'
 cask 'google-hangouts'
 cask 'gpxsee' if home
 cask 'insomnia'
+cask 'intellij-idea' if work
+cask 'intellij-idea-ce' if home
+cask 'java8'
 cask 'keybase'
 cask 'musicbrainz-picard' if home
+cask 'notable'
+cask 'paw'
 cask 'skype' if work
 cask 'slack' if work
 cask 'sonos' if home
@@ -96,6 +121,7 @@ cask 'spectacle'
 cask 'spotify'
 cask 'sublime-merge'
 cask 'sublime-text'
+cask 'rupert/private/mischief-free'
 cask 'virtualbox'
 cask 'visual-studio-code'
 cask 'vlc'
@@ -104,23 +130,5 @@ cask 'whatsapp' if home
 cask 'zoomus' if work
 cask 'zwift' if home
 
-tap 'caskroom/versions'
-cask 'java8'
-
-tap 'homebrew/cask-fonts'
-cask 'font-fira-code'
-cask 'font-roboto'
-cask 'font-roboto-mono'
-cask 'font-source-code-pro'
-
-tap 'rupert/repo'
-brew 'google-photos-backup'
-
-tap 'rupert/private'
-cask 'mischief-free'
-
 mas 'Encrypto', id: 935235287 if work
 mas 'Things3', id: 904280696
-
-tap 'babylonpartners/babylon'
-# env HOMEBREW_GITHUB_API_TOKEN=<snip> brew install shipcat
