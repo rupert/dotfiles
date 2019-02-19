@@ -97,7 +97,7 @@ cask 'atom'
 cask 'dash'
 cask 'deluge' if home
 cask 'docker'
-cask 'etcher'
+cask 'balenaetcher'
 cask 'font-fira-code'
 cask 'font-roboto'
 cask 'font-roboto-mono'
