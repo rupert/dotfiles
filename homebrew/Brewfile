@@ -94,7 +94,6 @@ cask '1password'
 cask 'anybar'
 cask 'arq' if home
 cask 'atom'
-cask 'dash'
 cask 'deluge' if home
 cask 'docker'
 cask 'balenaetcher'
