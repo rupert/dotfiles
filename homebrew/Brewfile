@@ -119,7 +119,6 @@ cask 'slack' if work
 cask 'sonos' if home
 cask 'spectacle'
 cask 'spotify'
-cask 'sublime-merge'
 cask 'sublime-text'
 cask 'rupert/private/mischief-free'
 cask 'virtualbox'
