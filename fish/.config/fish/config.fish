@@ -11,4 +11,4 @@ set -x PATH $HOME/.pyenv/shims $PATH
 pyenv rehash
 eval (python3 -m virtualfish auto_activation projects)
 
-eval (direnv hook fish)
+direnv hook fish | source
