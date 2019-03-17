@@ -115,7 +115,6 @@ cask 'intellij-idea-ce' if home
 cask 'java8'
 cask 'keybase'
 cask 'musicbrainz-picard' if home
-cask 'notable'
 cask 'paw'
 cask 'pycharm' if work
 cask 'pycharm-ce' if home
