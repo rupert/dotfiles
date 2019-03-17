@@ -91,6 +91,7 @@ brew 'youtube-dl'
 brew 'zbar'
 
 cask '1password'
+cask 'anki'
 cask 'anybar'
 cask 'arq' if home
 cask 'atom'
