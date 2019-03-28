@@ -134,8 +134,6 @@ cask 'whatsapp' if home
 cask 'zoomus' if work
 cask 'zwift' if home
 
-mas 'Bear', id: 1091189122
 mas 'Canopy', id: 1419224245
 mas 'Encrypto', id: 935235287 if work
-mas 'Things3', id: 904280696
 mas 'XCode', id: 497799835
