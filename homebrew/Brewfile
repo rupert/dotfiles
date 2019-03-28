@@ -115,7 +115,6 @@ cask 'insomnia'
 cask 'intellij-idea' if work
 cask 'intellij-idea-ce' if home
 cask 'java8'
-cask 'keybase'
 cask 'musicbrainz-picard' if home
 cask 'paw'
 cask 'pycharm' if work
