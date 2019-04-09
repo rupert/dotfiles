@@ -109,13 +109,11 @@ cask 'font-roboto-mono'
 cask 'font-source-code-pro'
 cask 'garmin-express' if home
 cask 'google-chrome'
-cask 'google-hangouts'
 cask 'gpxsee' if home
 cask 'insomnia'
 cask 'intellij-idea' if work
 cask 'intellij-idea-ce' if home
 cask 'java8'
-cask 'musicbrainz-picard' if home
 cask 'paw'
 cask 'pycharm' if work
 cask 'pycharm-ce' if home
