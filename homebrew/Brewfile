@@ -98,10 +98,8 @@ brew 'zlib'
 cask '1password'
 cask 'anki'
 cask 'anybar'
-cask 'arq' if home
 cask 'atom'
 cask 'balenaetcher'
-cask 'deluge' if home
 cask 'docker'
 cask 'font-fira-code'
 cask 'font-roboto'
