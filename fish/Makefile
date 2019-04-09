@@ -1,4 +1,5 @@
 install:
+	brew install python3
 	python3 -m pip install --user virtualfish
 	mkdir -p $(HOME)/.config/fish
 	mkdir -p $(HOME)/.local/bin
