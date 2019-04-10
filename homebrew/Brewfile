@@ -1,10 +1,12 @@
 work = system("dsconfigad -show | grep --quiet babylonhealth")
 home = !work
 
+tap 'homebrew/cask'
+cask 'java8'
+
 tap 'babylonpartners/babylon'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 tap 'heroku/brew'
-tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
@@ -110,7 +112,6 @@ cask 'google-chrome'
 cask 'gpxsee' if home
 cask 'intellij-idea' if work
 cask 'intellij-idea-ce' if home
-cask 'java8'
 cask 'pycharm' if work
 cask 'pycharm-ce' if home
 cask 'rupert/private/mischief-free'
