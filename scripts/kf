@@ -19,7 +19,7 @@ while (( "$#" )); do
         # TODO refactor
         if [[ ${pargs[0]:-} == get ]] && [[ ${pargs[1]:-} == pod ]]; then
             run=1
-        elif [[ ${pargs[0]:-} == describe ]] || [[ ${pargs[0]:-} == pod ]]; then
+        elif [[ ${pargs[0]:-} == describe ]] && [[ ${pargs[1]:-} == pod ]]; then
             run=1
         elif [[ ${pargs[0]:-} == exec ]]; then
             run=1
