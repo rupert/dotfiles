@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -eou pipefail
+
+declare -a args
+declare -a pargs
+
+skip=0
+
+while (( "$#" )); do
+    if [[ $1 == -- ]]; then
+        skip=1
+        args+=("$1")
+    elif [[ $1 == -* ]] || [[ $skip -eq 1 ]]; then
+        args+=("$1")
+    else
+        run=0
+
+        # TODO refactor
+        if [[ ${pargs[0]:-} == get ]] && [[ ${pargs[1]:-} == pod ]]; then
+            run=1
+        elif [[ ${pargs[0]:-} == describe ]] || [[ ${pargs[0]:-} == pod ]]; then
+            run=1
+        elif [[ ${pargs[0]:-} == exec ]]; then
+            run=1
+        fi
+
+        if [[ $run -eq 1 ]]; then
+            app=$1
+            pod=$(kubectl get pods -lapp="$app" -o custom-columns=:metadata.name --no-headers=true | head -n 1)
+
+            if [[ -z "$pod" ]]; then
+                echo "No pods found for $app!" >&2
+                exit 1
+            fi
+
+            args+=("$pod")
+            skip=1
+        else
+            args+=("$1")
+            pargs+=("$1")
+        fi
+    fi
+
+    shift
+done
+
+exec kubectl "${args[@]}"
