@@ -34,3 +34,5 @@
 [pager]
 	diff = diff-so-fancy | less -RFX
 	show = diff-so-fancy | less -RFX
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"

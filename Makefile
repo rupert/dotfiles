@@ -1,8 +1,6 @@
-PROJECTS = fish git rg tmux vim go-jira pyenv homebrew vscode
+PROJECTS = fish git rg tmux vim go-jira homebrew vscode
 
 install: $(PROJECTS)
-
-fish: pyenv
 
 $(PROJECTS):
 	$(MAKE) -C $@
