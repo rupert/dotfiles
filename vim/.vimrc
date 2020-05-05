@@ -5,16 +5,14 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 set updatetime=250
 
-if has('gui')
-    colorscheme Mariana
-else
-    syntax enable
-    set background=dark
-endif
+syntax on
+colorscheme dracula
+set background=dark
 
 filetype plugin indent on
 set tabstop=4
