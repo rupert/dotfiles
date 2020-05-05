@@ -7,9 +7,6 @@ set -x RIPGREP_CONFIG_PATH ~/.config/rg
 
 alias kc kubectx
 
-pyenv init - | source
-pyenv rehash
-
 eval (python3 -m virtualfish auto_activation projects)
 
 direnv hook fish | source
