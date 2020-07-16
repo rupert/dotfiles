@@ -7,21 +7,16 @@
     "editor.rulers": [
         80
     ],
-    "python.venvPath": "~/.virtualenvs",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "editor.fontLigatures": true,
-    "editor.fontFamily": "'Fira Code'",
-    "workbench.colorTheme": "Atom One Dark",
-    "workbench.iconTheme": "file-icons",
-    "openInGitHub.useCommitSHAInURL": true,
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "window.zoomLevel": 0,
-    "python.unitTest.pyTestArgs": [
+    "python.testing.pytestArgs": [
         "-v",
         "--log-cli-level",
         "info"
@@ -29,13 +24,10 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
-    "workbench.statusBar.feedback.visible": false,
     "files.associations": {
         "Brewfile": "ruby"
     },
     "editor.minimap.enabled": false,
     "diffEditor.renderSideBySide": false,
-    "workbench.sideBar.location": "right",
-    "python.formatting.blackPath": "/usr/local/bin/black",
-    "python.jediEnabled": false
+    "python.languageServer": "Microsoft"
 }
