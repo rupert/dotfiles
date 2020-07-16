@@ -9,3 +9,5 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 eval "$(direnv hook zsh)"
+
+[ -e "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
