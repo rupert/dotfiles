@@ -23,11 +23,11 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.formatOnSave": true,
     "files.associations": {
         "Brewfile": "ruby"
     },
     "editor.minimap.enabled": false,
     "diffEditor.renderSideBySide": false,
-    "python.languageServer": "Microsoft"
+    "editor.formatOnSave": true,
+    "python.languageServer": "Pylance"
 }
