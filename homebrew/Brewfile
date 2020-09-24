@@ -65,10 +65,6 @@ brew 'zlib'
 brew 'zsh'
 
 cask '1password'
-cask 'anki'
-cask 'anybar'
-cask 'atom'
-cask 'balenaetcher'
 cask 'docker'
 cask 'font-fira-code'
 cask 'font-roboto'
@@ -76,13 +72,6 @@ cask 'font-roboto-mono'
 cask 'font-source-code-pro'
 cask 'garmin-express' if home
 cask 'google-chrome'
-cask 'gpxsee' if home
-cask 'intellij-idea' if work
-cask 'intellij-idea-ce' if home
-cask 'pycharm' if work
-cask 'pycharm-ce' if home
-cask 'rupert/private/mischief-free'
-cask 'skype' if work
 cask 'slack' if work
 cask 'spectacle'
 cask 'spotify'
