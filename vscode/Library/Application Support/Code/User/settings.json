@@ -28,6 +28,8 @@
     },
     "editor.minimap.enabled": false,
     "diffEditor.renderSideBySide": false,
-    "editor.formatOnSave": true,
-    "python.languageServer": "Pylance"
+    "python.languageServer": "Pylance",
+    "files.exclude": {
+        "**/.venv": true
+    }
 }

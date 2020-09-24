@@ -4,6 +4,7 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
     git
+    virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
