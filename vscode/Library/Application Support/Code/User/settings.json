@@ -15,7 +15,6 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "window.zoomLevel": 0,
     "python.testing.pytestArgs": [
         "-v",
         "--log-cli-level",
@@ -31,5 +30,12 @@
     "python.languageServer": "Pylance",
     "files.exclude": {
         "**/.venv": true
-    }
+    },
+    "gitlens.views.lineHistory.enabled": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ]
 }
