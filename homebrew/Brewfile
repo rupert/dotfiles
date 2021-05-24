@@ -4,23 +4,15 @@ home = !work
 tap 'homebrew/cask'
 cask 'java8'
 
-tap 'babylonhealth/babylon' if work
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
 tap 'heroku/brew'
-tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'lokalise/brew'
-tap 'rupert/private'
-tap 'rupert/repo'
 
 brew 'awscli'
-brew 'babylonhealth/babylon/shipcat' if work
 brew 'bash'
 brew 'burntsushi/ripgrep/ripgrep-bin'
 brew 'circleci'
 brew 'cloc'
-brew 'colordiff'
 brew 'coreutils'
 brew 'curl'
 brew 'diff-so-fancy'
@@ -35,7 +27,6 @@ brew 'imagemagick'
 brew 'jq'
 brew 'kubectx'
 brew 'kubernetes-cli'
-brew 'mas'
 brew 'nmap'
 brew 'node'
 brew 'pgcli'
@@ -51,8 +42,6 @@ brew 'shellcheck'
 brew 'sqlite'
 brew 'ssh-audit'
 brew 'stow'
-brew 'syncthing'
-brew 'task'
 brew 'teleport'
 brew 'telnet'
 brew 'vault'
@@ -64,23 +53,12 @@ brew 'youtube-dl'
 brew 'zlib'
 brew 'zsh'
 
-cask '1password'
-cask 'docker'
 cask 'font-fira-code'
 cask 'font-roboto'
 cask 'font-roboto-mono'
 cask 'font-source-code-pro'
-cask 'garmin-express' if home
-cask 'google-chrome'
-cask 'slack' if work
-cask 'spectacle'
-cask 'spotify'
-cask 'sublime-text'
-cask 'visual-studio-code'
-cask 'vlc'
-cask 'wacom-tablet'
-cask 'whatsapp' if home
-cask 'zoomus' if work
-cask 'zwift' if home
 
-mas 'XCode', id: 497799835
+if work
+    tap 'babylonhealth/babylon'
+    brew 'babylonhealth/babylon/shipcat'
+end
