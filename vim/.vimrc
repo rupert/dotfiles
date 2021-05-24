@@ -5,7 +5,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', {'as': 'dracula'}
 call plug#end()
 
 set updatetime=250
