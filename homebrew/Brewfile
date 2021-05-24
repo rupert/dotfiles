@@ -1,5 +1,4 @@
-work = system("dsconfigad -show | grep --quiet babylonhealth")
-home = !work
+is_work = Socket.gethostname() == "B-5019.local"
 
 tap 'homebrew/cask'
 tap 'burntsushi/ripgrep', 'https://github.com/BurntSushi/ripgrep.git'
@@ -56,7 +55,7 @@ cask 'font-roboto'
 cask 'font-roboto-mono'
 cask 'font-source-code-pro'
 
-if work
+if is_work
     tap 'babylonhealth/babylon'
     brew 'babylonhealth/babylon/shipcat'
 end
