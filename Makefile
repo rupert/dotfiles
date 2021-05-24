@@ -1,4 +1,4 @@
-PROJECTS = git rg tmux vim go-jira homebrew vscode zsh task
+PROJECTS = git rg tmux vim homebrew vscode zsh
 
 install: $(PROJECTS)
 
