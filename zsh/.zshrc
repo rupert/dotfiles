@@ -26,3 +26,5 @@ export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secr
 
 source "/usr/local/opt/fzf/shell/completion.zsh"
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+alias vim=nvim
