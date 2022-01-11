@@ -26,7 +26,7 @@
 	name = Rupert Bedford
 	email = 182958+rupert@users.noreply.github.com
 [core]
-	editor = /usr/bin/vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [submodule]
 	recurse = true
