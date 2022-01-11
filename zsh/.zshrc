@@ -24,7 +24,18 @@ export NVM_DIR="$HOME/.nvm"
 
 export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
-source "/usr/local/opt/fzf/shell/completion.zsh"
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source '/usr/local/opt/fzf/shell/completion.zsh'
+source '/usr/local/opt/fzf/shell/key-bindings.zsh'
 
 alias vim=nvim
+
+setopt autocd correct_all
+
+export CLICOLOR=1
+
+eval "$(gdircolors -b)"
+
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
