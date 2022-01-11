@@ -12,7 +12,6 @@
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "editor.fontLigatures": true,
-    "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "python.testing.pytestArgs": [
@@ -25,17 +24,19 @@
     "files.associations": {
         "Brewfile": "ruby"
     },
-    "editor.minimap.enabled": false,
     "diffEditor.renderSideBySide": false,
     "python.languageServer": "Pylance",
     "files.exclude": {
         "**/.venv": true
     },
     "gitlens.views.lineHistory.enabled": true,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ]
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "python.showStartPage": false,
+    "workbench.iconTheme": "file-icons",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    }
 }
