@@ -23,3 +23,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
+source "/usr/local/opt/fzf/shell/completion.zsh"
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
