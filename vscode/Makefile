@@ -1,7 +1,6 @@
 install:
 	mkdir -p '$(HOME)/Library/Application Support/Code/User'
 	stow -v --ignore Makefile -t $(HOME) .
-	code --install-extension akamud.vscode-theme-onedark
 	code --install-extension file-icons.file-icons
 	code --install-extension golang.Go
 	code --install-extension ziyasal.vscode-open-in-github

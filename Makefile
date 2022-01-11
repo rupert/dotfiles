@@ -1,4 +1,4 @@
-PROJECTS = git rg tmux vim homebrew vscode zsh macos neovim
+PROJECTS = git rg tmux homebrew vscode zsh macos neovim
 
 install: $(PROJECTS)
 
