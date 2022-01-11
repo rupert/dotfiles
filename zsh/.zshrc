@@ -12,3 +12,8 @@ fi
 if [ -e "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init - --no-rehash)"
+
+export PATH="$HOME/.poetry/bin:$PATH"
