@@ -1,3 +1,9 @@
+function source_if_exists() {
+    if [ -e "$1" ]; then
+        source "$1" "$@"
+    fi
+}
+
 eval "$(starship init zsh)"
 
 if command -v direnv &> /dev/null; then
@@ -7,13 +13,9 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
-if [ -e "$HOME/.cargo/env" ]; then
-    source $HOME/.cargo/env
-fi
+source_if_exists "$HOME/.cargo/env"
 
-if [ -e "$HOME/.zshrc.local" ]; then
-    source "$HOME/.zshrc.local"
-fi
+source_if_exists "$HOME/.zshrc.local"
 
 if command -v pyenv &> /dev/null; then
     eval "$(pyenv init --path)"
@@ -23,13 +25,18 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+source_if_exists "$NVM_DIR/nvm.sh" --no-use
+source_if_exists "$NVM_DIR/bash_completion"
 
 export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
-source '/usr/local/opt/fzf/shell/completion.zsh'
-source '/usr/local/opt/fzf/shell/key-bindings.zsh'
+# Homebrew
+source_if_exists /usr/local/opt/fzf/shell/completion.zsh
+source_if_exists /usr/local/opt/fzf/shell/key-bindings.zsh
+
+# Ubuntu
+source_if_exists /usr/share/doc/fzf/examples/completion.zsh
+source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
 
 alias vim=nvim
 
