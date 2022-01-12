@@ -29,8 +29,6 @@ source '/usr/local/opt/fzf/shell/key-bindings.zsh'
 
 alias vim=nvim
 
-setopt autocd correct_all
-
 export CLICOLOR=1
 
 eval "$(gdircolors -b)"
