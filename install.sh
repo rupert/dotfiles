@@ -21,7 +21,7 @@ function download() {
 
 trap cleanup EXIT
 
-cd "$tmp"
+pushd "$tmp"
 
 download "https://github.com/dandavison/delta/releases/download/${GIT_DELTA_VERSION}/git-delta_${GIT_DELTA_VERSION}_amd64.deb" "$tmp/git-delta.deb"
 dpkg -i "git-delta.deb"
@@ -32,3 +32,21 @@ dpkg -i "gh.deb"
 download "https://github.com/starship/starship/releases/download/v${STARSHIP_VERSION}/starship-x86_64-unknown-linux-gnu.tar.gz" "$tmp/starship.tar.gz"
 tar -xzf "starship.tar.gz"
 mv starship /usr/local/bin
+
+popd
+
+packages=(
+    build-essential
+    ripgrep
+    stow
+)
+
+apt-get update
+apt-get install -y "${packages[@]}"
+
+make -C rg
+
+# Remove default
+rm ~/.zshrc
+
+make -C zsh
