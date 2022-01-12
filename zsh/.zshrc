@@ -1,6 +1,8 @@
 eval "$(starship init zsh)"
 
-eval "$(direnv hook zsh)"
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
@@ -13,8 +15,10 @@ if [ -e "$HOME/.zshrc.local" ]; then
     source "$HOME/.zshrc.local"
 fi
 
-eval "$(pyenv init --path)"
-eval "$(pyenv init - --no-rehash)"
+if command -v pyenv &> /dev/null; then
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init - --no-rehash)"
+fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
