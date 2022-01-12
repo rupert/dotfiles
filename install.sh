@@ -37,6 +37,7 @@ popd
 
 packages=(
     build-essential
+    fzf
     ripgrep
     stow
 )
