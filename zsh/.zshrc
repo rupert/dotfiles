@@ -30,11 +30,11 @@ source_if_exists "$NVM_DIR/bash_completion"
 
 export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
-# Homebrew
+# Darwin
 source_if_exists /usr/local/opt/fzf/shell/completion.zsh
 source_if_exists /usr/local/opt/fzf/shell/key-bindings.zsh
 
-# Ubuntu
+# Linux
 source_if_exists /usr/share/doc/fzf/examples/completion.zsh
 source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
 
@@ -42,7 +42,13 @@ alias vim=nvim
 
 export CLICOLOR=1
 
-eval "$(gdircolors -b)"
+if command -v gdircolors &> /dev/null; then
+    # Darwin
+    eval "$(gdircolors -b)"
+else
+    # Linux
+    eval "$(dircolors -b)"
+fi
 
 autoload -Uz compinit
 compinit
