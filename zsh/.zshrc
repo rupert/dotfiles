@@ -48,11 +48,10 @@ if command -v gdircolors &> /dev/null; then
 else
     # Linux
     eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
 fi
 
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-alias ls='ls --color=auto'
