@@ -2,13 +2,9 @@
 	ui = true
 [push]
 	default = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
 [diff]
 	renames = copies
+	colorMoved = default
 [branch]
 	autosetuprebase = always
 [credential]
@@ -27,31 +23,18 @@
 	email = 182958+rupert@users.noreply.github.com
 [core]
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 [submodule]
 	recurse = true
 [fetch]
 	prune = true
-[pager]
-	show = diff-so-fancy | less -RFX
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
 [pull]
 	rebase = true
 [interactive]
-	diffFilter = diff-so-fancy --patch
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-[diff-so-fancy]
-	markEmptyLines = false
+	diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
