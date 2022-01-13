@@ -11,7 +11,6 @@ if command -v direnv &> /dev/null; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 source_if_exists "$HOME/.cargo/env"
 
@@ -28,28 +27,28 @@ export NVM_DIR="$HOME/.nvm"
 source_if_exists "$NVM_DIR/nvm.sh" --no-use
 source_if_exists "$NVM_DIR/bash_completion"
 
-export SSH_AUTH_SOCK=/Users/rupertbedford/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+case "$OSTYPE" in
+    darwin*)
+        export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
-# Darwin
-source_if_exists /usr/local/opt/fzf/shell/completion.zsh
-source_if_exists /usr/local/opt/fzf/shell/key-bindings.zsh
+        export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
-# Linux
-source_if_exists /usr/share/doc/fzf/examples/completion.zsh
-source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
+        source_if_exists /usr/local/opt/fzf/shell/completion.zsh
+        source_if_exists /usr/local/opt/fzf/shell/key-bindings.zsh
+
+        eval "$(gdircolors -b)"
+        ;;
+    linux*)
+        eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+
+        source_if_exists /usr/share/doc/fzf/examples/completion.zsh
+        source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
+esac
 
 alias vim=nvim
 
 export CLICOLOR=1
-
-if command -v gdircolors &> /dev/null; then
-    # Darwin
-    eval "$(gdircolors -b)"
-else
-    # Linux
-    eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-fi
 
 autoload -Uz compinit
 compinit
