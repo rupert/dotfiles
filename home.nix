@@ -8,6 +8,7 @@
     stateVersion = "22.05";
 
     packages = with pkgs; [
+      coreutils-prefixed
       direnv
       gh
       google-cloud-sdk
