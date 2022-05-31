@@ -139,6 +139,8 @@
   programs.zsh = {
     enable = true;
 
+    defaultKeymap = "emacs";
+
     initExtra =
       lib.optionalString pkgs.stdenv.isDarwin ''
         eval "$(gdircolors -b)"
