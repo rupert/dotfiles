@@ -57,3 +57,11 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+source_if_exists "$HOME/Developer/google-cloud-sdk/path.zsh.inc"
+source_if_exists "$HOME/Developer/google-cloud-sdk/completion.zsh.inc"
+
+export HDF5_DIR="$(brew --prefix hdf5)"
+export CFLAGS="$CFLAGS -DHAVE_UNISTD_H"
+export OPENBLAS="$(brew --prefix openblas)"
+export LDFLAGS="$LDFLAGS -I$(brew --prefix)/include -L$(brew --prefix)/lib"
