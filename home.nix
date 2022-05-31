@@ -20,20 +20,16 @@
     sessionVariables =
       {
         CLICOLOR = "1";
+	      EDITOR = "nvim";
         RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
       }
       // lib.optionalAttrs pkgs.stdenv.isDarwin {
         SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       };
 
-    shellAliases =
-      {
-        vi = "nvim";
-        vim = "nvim";
-      }
-      // lib.optionalAttrs pkgs.stdenv.isLinux {
-        ls = "ls --color=auto";
-      };
+    shellAliases = lib.optionalAttrs pkgs.stdenv.isLinux {
+      ls = "ls --color=auto";
+    };
 
     sessionPath = [
       "$HOME/.poetry/bin"
@@ -170,6 +166,9 @@
       tokyonight-nvim
       plenary-nvim
     ];
+
+    viAlias = true;
+    vimAlias = true;
 
     extraConfig = ''
       colorscheme tokyonight
