@@ -1,9 +1,0 @@
-format = """$character"""
-right_format = """$all"""
-
-[kubernetes]
-disabled = false
-format = "[$symbol$context]($style) in "
-
-[gcloud]
-disabled = true
