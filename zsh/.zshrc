@@ -16,9 +16,12 @@ source_if_exists "$HOME/.cargo/env"
 
 source_if_exists "$HOME/.zshrc.local"
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
 if command -v pyenv &> /dev/null; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init - --no-rehash)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 export PATH="$HOME/.poetry/bin:$PATH"
