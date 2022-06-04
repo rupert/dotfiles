@@ -196,8 +196,30 @@
     '';
   };
 
+  programs.zoxide.enable = true;
+
   xdg.configFile.rg.text = ''
     --line-number
     --no-heading
   '';
+
+  targets.darwin.defaults = {
+    NSGlobalDomain = {
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+    };
+
+    com.apple.dock = {
+      tilesize = 48;
+      minimize-to-application = true;
+    };
+
+    com.apple.desktopservices = {
+      DSDontWriteNetworkStores = true;
+      DSDontWriteUSBStores = true;
+    };
+  };
 }
