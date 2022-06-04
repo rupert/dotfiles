@@ -27,7 +27,7 @@
     sessionVariables =
       {
         CLICOLOR = "1";
-	      EDITOR = "nvim";
+	EDITOR = "nvim";
         RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
       }
       // lib.optionalAttrs pkgs.stdenv.isDarwin {
