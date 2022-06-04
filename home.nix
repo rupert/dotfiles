@@ -8,10 +8,17 @@
     stateVersion = "22.05";
 
     packages = with pkgs; [
+      bat
       coreutils-prefixed
       direnv
+      fd
       gh
+      go
       google-cloud-sdk
+      grex
+      kubectl
+      nix-info
+      pwgen
       python3
       ripgrep
       tree
@@ -167,6 +174,7 @@
       telescope-nvim
       tokyonight-nvim
       plenary-nvim
+      vim-nix
     ];
 
     viAlias = true;
