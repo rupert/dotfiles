@@ -27,9 +27,16 @@
       pwgen
       python3
       ripgrep
+      roboto
+      roboto-mono
+      source-code-pro
       sqlite
       tree
       youtube-dl
+
+      (nerdfonts.override {
+        fonts = ["FiraCode"];
+      })
     ];
 
     sessionVariables =
