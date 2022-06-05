@@ -10,18 +10,26 @@
     packages = with pkgs; [
       bat
       coreutils-prefixed
+      curl
       direnv
       fd
+      ffmpeg
       gh
+      git-lfs
       go
       google-cloud-sdk
       grex
+      htop
+      imagemagick
       kubectl
       nix-info
+      poetry
       pwgen
       python3
       ripgrep
+      sqlite
       tree
+      youtube-dl
     ];
 
     sessionVariables =
