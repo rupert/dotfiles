@@ -151,7 +151,7 @@
     enable = true;
 
     settings = {
-      format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$fill$python$kubernetes$command_duration$cmd_duration$line_break$character";
+      format = "$directory$git_branch$git_commit$git_state$git_status$fill$python$kubernetes$command_duration$cmd_duration$line_break$character";
 
       cmd_duration = {
         format = "[$duration]($style)";
@@ -172,7 +172,7 @@
       kubernetes = {
         disabled = false;
         format = "[$symbol$context]($style) ";
-        symbol = "";
+        symbol = " ";
         style = "fg:white";
       };
 
