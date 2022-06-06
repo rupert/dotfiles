@@ -9,12 +9,15 @@
 
     packages = with pkgs; [
       bat
+      bazelisk
       coreutils-prefixed
       curl
       direnv
+      docker
       fd
       ffmpeg
       gh
+      git
       git-lfs
       go
       google-cloud-sdk
@@ -25,12 +28,14 @@
       nix-info
       poetry
       pwgen
-      python3
+      python38
+      python38Packages.pip
       ripgrep
       roboto
       roboto-mono
       source-code-pro
       sqlite
+      telepresence2
       tree
       youtube-dl
 
