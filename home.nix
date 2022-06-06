@@ -151,15 +151,36 @@
     enable = true;
 
     settings = {
-      format = "$character";
-      right_format = "$all";
+      format = "$directory$git_branch$git_commit$git_state$git_metrics$git_status$fill$python$kubernetes$command_duration$cmd_duration$line_break$character";
 
-      kubernetes = {
-        disabled = false;
-        format = "[$symbol$context]($style) in ";
+      cmd_duration = {
+        format = "[$duration]($style)";
+        style = "fg:white bold";
       };
 
       gcloud.disabled = true;
+
+      git_branch = {
+        format = "[$symbol$branch(:$remote_branch)]($style) ";
+        symbol = " ";
+      };
+
+      fill = {
+        symbol = " ";
+      };
+
+      kubernetes = {
+        disabled = false;
+        format = "[$symbol$context]($style) ";
+        symbol = "";
+        style = "fg:white";
+      };
+
+      python = {
+        format = "[$symbol$pyenv_prefix($version )(\\($virtualenv\\) )]($style)";
+        symbol = " ";
+        style = "fg:white";
+      };
     };
   };
 
