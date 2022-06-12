@@ -37,6 +37,7 @@
       sqlite
       telepresence2
       tree
+      watch
       youtube-dl
 
       (nerdfonts.override {
