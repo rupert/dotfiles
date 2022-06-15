@@ -152,6 +152,8 @@
       help.autocorrect = 1;
       push.default = "simple";
     };
+
+    lfs.enable = true;
   };
 
   programs.starship = {
