@@ -25,11 +25,14 @@
       htop
       imagemagick
       kubectl
+      kubectx
       nix-info
+      openjdk11
       poetry
       pwgen
-      python38
-      python38Packages.pip
+      python39
+      python39Packages.pip
+      python39Packages.pip-tools
       ripgrep
       roboto
       roboto-mono
@@ -38,6 +41,7 @@
       telepresence2
       tree
       watch
+      watchexec
       youtube-dl
 
       (nerdfonts.override {
