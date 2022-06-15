@@ -43,6 +43,8 @@
       (nerdfonts.override {
         fonts = ["FiraCode"];
       })
+
+      (import ./kubefwd.nix {})
     ];
 
     sessionVariables =
