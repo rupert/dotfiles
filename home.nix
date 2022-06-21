@@ -24,6 +24,7 @@
       google-cloud-sdk
       grex
       htop
+      hyperfine
       imagemagick
       jq
       kubectl
@@ -31,6 +32,7 @@
       nix-info
       nodejs
       openjdk11
+      parallel
       poetry
       protobuf
       pwgen
@@ -42,7 +44,6 @@
       roboto-mono
       source-code-pro
       sqlite
-      telepresence2
       tree
       watch
       watchexec
