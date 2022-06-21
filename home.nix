@@ -13,6 +13,7 @@
       coreutils-prefixed
       curl
       direnv
+      dive
       docker
       fd
       ffmpeg
@@ -24,11 +25,14 @@
       grex
       htop
       imagemagick
+      jq
       kubectl
       kubectx
       nix-info
+      nodejs
       openjdk11
       poetry
+      protobuf
       pwgen
       python39
       python39Packages.pip
