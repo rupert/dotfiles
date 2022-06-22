@@ -324,6 +324,9 @@
       NSAutomaticPeriodSubstitutionEnabled = false;
       NSAutomaticQuoteSubstitutionEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
+
+      KeyRepeat = 2;
+      InitialKeyRepeat = 15;
     };
 
     com.apple.dock = {
