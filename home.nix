@@ -9,6 +9,7 @@
 
     packages = with pkgs; [
       act
+      age
       bat
       bazelisk
       coreutils-prefixed
@@ -16,6 +17,7 @@
       direnv
       dive
       docker
+      exiftool
       fd
       ffmpeg
       gh
@@ -34,17 +36,21 @@
       nodejs
       openjdk11
       parallel
+      pgcli
       poetry
       protobuf
+      postgresql
       pwgen
       python39
       python39Packages.pip
       python39Packages.pip-tools
+      redis
       ripgrep
       roboto
       roboto-mono
       source-code-pro
       sqlite
+      sqlite-interactive
       tree
       watch
       watchexec
