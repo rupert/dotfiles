@@ -8,6 +8,7 @@
     stateVersion = "22.05";
 
     packages = with pkgs; [
+      act
       bat
       bazelisk
       coreutils-prefixed
@@ -215,6 +216,7 @@
         zstyle ':completion:*' list-colors "''\${(s.:.)LS_COLORS}"
 
         bindkey -s '^[3' '#'
+
         bindkey '^[[H' beginning-of-line
         bindkey '^[[F' end-of-line
         bindkey '^[[3~' delete-char
