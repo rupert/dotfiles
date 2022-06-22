@@ -14,6 +14,7 @@
       bazelisk
       coreutils-prefixed
       curl
+      difftastic
       direnv
       dive
       docker
@@ -32,6 +33,7 @@
       jq
       kubectl
       kubectx
+      lazygit
       nix-info
       nodejs
       openjdk11
@@ -48,6 +50,7 @@
       ripgrep
       roboto
       roboto-mono
+      sd
       source-code-pro
       sqlite-interactive
       tree
