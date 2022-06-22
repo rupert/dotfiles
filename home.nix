@@ -219,6 +219,14 @@
         bindkey '^[[H' beginning-of-line
         bindkey '^[[F' end-of-line
         bindkey '^[[3~' delete-char
+
+        autoload -U up-line-or-beginning-search
+        zle -N up-line-or-beginning-search
+        bindkey '^[[A' up-line-or-beginning-search
+
+        autoload -U down-line-or-beginning-search
+        zle -N down-line-or-beginning-search
+        bindkey '^[[B' down-line-or-beginning-search
       '';
 
     envExtra = ''
@@ -226,6 +234,27 @@
         source "$HOME/.cargo/env"
       fi
     '';
+
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.7.0";
+          sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
+        };
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-syntax-highlighting";
+          rev = "0.7.1";
+          sha256 = "gOG0NLlaJfotJfs+SUhGgLTNOnGLjoqnUp54V9aFJg8=";
+        };
+      }
+    ];
   };
 
   programs.neovim = {
