@@ -166,7 +166,7 @@
     enable = true;
 
     settings = {
-      format = "$directory$git_branch$git_commit$git_state$git_status$fill$python$kubernetes$command_duration$cmd_duration$line_break$character";
+      format = "$directory$git_branch$git_commit$git_state$git_status$fill( $python)( $kubernetes)( $cmd_duration)$line_break$character";
 
       cmd_duration = {
         format = "[$duration]($style)";
@@ -186,15 +186,14 @@
 
       kubernetes = {
         disabled = false;
-        format = "[$symbol$context]($style) ";
-        symbol = " ";
-        style = "fg:white";
+        format = "[$context]($style)";
+        style = "fg:blue";
       };
 
       python = {
-        format = "[$symbol$pyenv_prefix($version )(\\($virtualenv\\) )]($style)";
-        symbol = " ";
-        style = "fg:white";
+        format = "[$version( \\($virtualenv\\))]($style)";
+        style = "fg:yellow";
+        version_format = "\${raw}";
       };
     };
   };
@@ -227,6 +226,10 @@
         autoload -U down-line-or-beginning-search
         zle -N down-line-or-beginning-search
         bindkey '^[[B' down-line-or-beginning-search
+
+        autoload -z edit-command-line
+        zle -N edit-command-line
+        bindkey "^X^E" edit-command-line
       '';
 
     envExtra = ''
