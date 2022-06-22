@@ -214,6 +214,11 @@
       + ''
         zstyle ':completion:*' menu select
         zstyle ':completion:*' list-colors "''\${(s.:.)LS_COLORS}"
+
+        bindkey -s '^[3' '#'
+        bindkey '^[[H' beginning-of-line
+        bindkey '^[[F' end-of-line
+        bindkey '^[[3~' delete-char
       '';
 
     envExtra = ''
@@ -245,6 +250,11 @@
       nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
       nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
       nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+      imap <silent> <M-3> #
+
+      autocmd BufRead * autocmd FileType <buffer> ++once
+        \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
     '';
   };
 
