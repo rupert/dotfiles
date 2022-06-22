@@ -49,7 +49,6 @@
       roboto
       roboto-mono
       source-code-pro
-      sqlite
       sqlite-interactive
       tree
       watch
