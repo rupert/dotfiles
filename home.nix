@@ -18,6 +18,7 @@
       direnv
       dive
       docker
+      docker-compose_2
       exiftool
       fd
       ffmpeg
