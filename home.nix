@@ -77,9 +77,13 @@
         SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       };
 
-    shellAliases = lib.optionalAttrs pkgs.stdenv.isLinux {
-      ls = "ls --color=auto";
-    };
+    shellAliases = 
+      {
+        lg = "lazygit";
+      }
+      // lib.optionalAttrs pkgs.stdenv.isLinux {
+        ls = "ls --color=auto";
+      };
 
     sessionPath = [
       "$HOME/.poetry/bin"
