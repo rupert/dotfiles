@@ -10,31 +10,23 @@
     packages = with pkgs; [
       act
       age
-      bat
       bazelisk
       coreutils-prefixed
       curl
       difftastic
-      direnv
       dive
       docker
       docker-compose_2
       exiftool
       fd
       ffmpeg
-      gh
-      git
-      git-lfs
-      go
       google-cloud-sdk
       grex
-      htop
       hyperfine
       imagemagick
       jq
       kubectl
       kubectx
-      lazygit
       nix-info
       nodejs
       openjdk11
@@ -92,7 +84,15 @@
     ];
   };
 
+  programs.bat.enable = true;
+  programs.dircolors.enable = true;
+  programs.fzf.enable = true;
+  programs.gh.enable = true;
+  programs.go.enable = true;
   programs.home-manager.enable = true;
+  programs.htop.enable = true;
+  programs.lazygit.enable = true;
+  programs.zoxide.enable = true;
 
   programs.direnv = {
     enable = true;
@@ -100,7 +100,6 @@
     nix-direnv.enable = true;
   };
 
-  programs.fzf.enable = true;
 
   programs.git = {    
     enable = true;
@@ -223,35 +222,28 @@
 
     defaultKeymap = "emacs";
 
-    initExtra =
-      lib.optionalString pkgs.stdenv.isDarwin ''
-        eval "$(gdircolors -b)"
-      ''
-      + lib.optionalString pkgs.stdenv.isLinux ''
-        eval "$(dircolors -b)"
-      ''
-      + ''
-        zstyle ':completion:*' menu select
-        zstyle ':completion:*' list-colors "''\${(s.:.)LS_COLORS}"
+    initExtra = ''
+      zstyle ':completion:*' menu select
+      zstyle ':completion:*' list-colors "''\${(s.:.)LS_COLORS}"
 
-        bindkey -s '^[3' '#'
+      bindkey -s '^[3' '#'
 
-        bindkey '^[[H' beginning-of-line
-        bindkey '^[[F' end-of-line
-        bindkey '^[[3~' delete-char
+      bindkey '^[[H' beginning-of-line
+      bindkey '^[[F' end-of-line
+      bindkey '^[[3~' delete-char
 
-        autoload -U up-line-or-beginning-search
-        zle -N up-line-or-beginning-search
-        bindkey '^[[A' up-line-or-beginning-search
+      autoload -U up-line-or-beginning-search
+      zle -N up-line-or-beginning-search
+      bindkey '^[[A' up-line-or-beginning-search
 
-        autoload -U down-line-or-beginning-search
-        zle -N down-line-or-beginning-search
-        bindkey '^[[B' down-line-or-beginning-search
+      autoload -U down-line-or-beginning-search
+      zle -N down-line-or-beginning-search
+      bindkey '^[[B' down-line-or-beginning-search
 
-        autoload -z edit-command-line
-        zle -N edit-command-line
-        bindkey "^X^E" edit-command-line
-      '';
+      autoload -z edit-command-line
+      zle -N edit-command-line
+      bindkey "^X^E" edit-command-line
+    '';
 
     envExtra = ''
       if [ -e "$HOME/.cargo/env" ]; then
@@ -323,7 +315,13 @@
     '';
   };
 
-  programs.zoxide.enable = true;
+  programs.ssh = {
+    enable = true;
+
+    extraConfig = ''
+      IdentityAgent /Users/rupert/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    '';
+  };
 
   xdg.configFile.rg.text = ''
     --line-number
