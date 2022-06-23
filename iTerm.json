@@ -155,42 +155,7 @@
   "Use Italic Font" : true,
   "Unlimited Scrollback" : false,
   "Keyboard Map" : {
-    "0xf72c-0x0-0x74" : {
-      "Version" : 1,
-      "Action" : 9,
-      "Text" : "",
-      "Label" : ""
-    },
-    "0xf72b-0x0-0x77" : {
-      "Version" : 1,
-      "Action" : 11,
-      "Text" : "0x05",
-      "Label" : ""
-    },
-    "0xf703-0x280000-0x7c" : {
-      "Version" : 1,
-      "Action" : 10,
-      "Text" : "f",
-      "Label" : ""
-    },
-    "0xf72d-0x0-0x79" : {
-      "Version" : 1,
-      "Action" : 8,
-      "Text" : "",
-      "Label" : ""
-    },
-    "0xf729-0x0-0x73" : {
-      "Version" : 1,
-      "Action" : 11,
-      "Text" : "0x01",
-      "Label" : ""
-    },
-    "0xf702-0x280000-0x7b" : {
-      "Version" : 1,
-      "Action" : 10,
-      "Text" : "b",
-      "Label" : ""
-    }
+
   },
   "Window Type" : 0,
   "Background Image Location" : "",
