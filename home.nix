@@ -1,6 +1,31 @@
 { config, pkgs, lib, ... }:
 
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      python39 = super.python39.override {
+        packageOverrides = pself: psuper: {
+          pyopenssl = psuper.pyopenssl.overrideAttrs (old: {
+            meta = with old; {
+              inherit meta;
+              broken = false;
+            };
+          });
+        };
+      };
+      python310 = super.python310.override {
+        packageOverrides = pself: psuper: {
+          pyopenssl = psuper.pyopenssl.overrideAttrs (old: {
+            meta = with old; {
+              inherit meta;
+              broken = false;
+            };
+          });
+        };
+      };
+    })
+  ];
+
   home = {
     username = "rupert";
     homeDirectory = "/Users/rupert";
@@ -10,13 +35,12 @@
     packages = with pkgs; [
       act
       age
-      bazelisk
       coreutils-prefixed
       curl
       difftastic
       dive
       docker
-      docker-compose_2
+      docker-compose
       exiftool
       fd
       ffmpeg
