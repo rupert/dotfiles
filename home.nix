@@ -51,6 +51,7 @@
       jq
       kubectl
       kubectx
+      nix-index
       nix-info
       nodejs
       openjdk11
@@ -267,6 +268,8 @@
       autoload -z edit-command-line
       zle -N edit-command-line
       bindkey "^X^E" edit-command-line
+
+      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
     '';
 
     envExtra = ''
