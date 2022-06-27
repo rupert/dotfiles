@@ -62,8 +62,6 @@
       postgresql
       pwgen
       python39
-      python39Packages.pip
-      python39Packages.pip-tools
       redis
       ripgrep
       roboto
