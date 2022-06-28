@@ -24,6 +24,18 @@
         };
       };
     })
+    (self: super: {
+      nix-direnv = super.nix-direnv.overrideAttrs (old: {
+        version = "2.1.1";
+
+        src = super.fetchFromGitHub {
+          owner = "nix-community";
+          repo = "nix-direnv";
+          rev = "2.1.1";
+          sha256 = "sha256-0K2qnoft7eBlhhHiEMHi4FcSy92ufAtAAmIz2dZkm7M=";
+        };
+      });
+    })
   ];
 
   home = {
