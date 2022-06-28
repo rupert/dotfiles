@@ -65,6 +65,7 @@
       kubectx
       nix-index
       nix-info
+      nixpkgs-fmt
       nodejs
       openjdk11
       parallel
@@ -83,28 +84,28 @@
       sqlite-interactive
       tree
       watch
-      watchexec
+      #watchexec
       youtube-dl
 
       (nerdfonts.override {
-        fonts = ["FiraCode"];
+        fonts = [ "FiraCode" ];
       })
 
-      (import ./ghz.nix {})
-      (import ./kubefwd.nix {})
+      (import ./ghz.nix { })
+      (import ./kubefwd.nix { })
     ];
 
     sessionVariables =
       {
         CLICOLOR = "1";
-	EDITOR = "nvim";
+        EDITOR = "nvim";
         RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
       }
       // lib.optionalAttrs pkgs.stdenv.isDarwin {
         SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       };
 
-    shellAliases = 
+    shellAliases =
       {
         lg = "lazygit";
       }
@@ -136,7 +137,7 @@
   };
 
 
-  programs.git = {    
+  programs.git = {
     enable = true;
 
     aliases = {
@@ -148,7 +149,7 @@
       up = "!git fetch && git rebase --autostash FETCH_HEAD";
     };
 
-    ignores = 
+    ignores =
       # Source: https://gist.github.com/octocat/9257657
       [
         "*.com"
