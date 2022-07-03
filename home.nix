@@ -63,6 +63,7 @@
       jq
       kubectl
       kubectx
+      kubeseal
       nix-index
       nix-info
       nixpkgs-fmt
