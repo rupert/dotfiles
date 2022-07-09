@@ -47,6 +47,7 @@
     packages = with pkgs; [
       act
       age
+      alejandra
       coreutils-prefixed
       curl
       difftastic
