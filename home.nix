@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   nixpkgs.overlays = [
     (self: super: {
       python39 = super.python39.override {
@@ -89,13 +92,14 @@
       watch
       #watchexec
       youtube-dl
+      zstd
 
       (nerdfonts.override {
-        fonts = [ "FiraCode" ];
+        fonts = ["FiraCode"];
       })
 
-      (import ./ghz.nix { })
-      (import ./kubefwd.nix { })
+      (import ./ghz.nix {})
+      (import ./kubefwd.nix {})
     ];
 
     sessionVariables =
@@ -138,7 +142,6 @@
 
     nix-direnv.enable = true;
   };
-
 
   programs.git = {
     enable = true;
