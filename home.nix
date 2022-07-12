@@ -72,7 +72,6 @@
       openjdk11
       parallel
       pgcli
-      poetry
       protobuf
       postgresql
       pwgen
