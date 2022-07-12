@@ -285,7 +285,8 @@
       source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
 
       function venv() {
-        python -m venv .venv
+        python -m venv .venv --upgrade-deps
+        .venv/bin/pip install --upgrade wheel
         echo ". .venv/bin/activate" >> .envrc
       }
     '';
