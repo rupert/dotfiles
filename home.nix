@@ -58,6 +58,7 @@
       ffmpeg
       google-cloud-sdk
       grex
+      htmlq
       hyperfine
       imagemagick
       jq
@@ -81,6 +82,7 @@
       roboto
       roboto-mono
       sd
+      shellcheck
       source-code-pro
       sqlite-interactive
       tree
