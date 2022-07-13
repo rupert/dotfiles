@@ -62,6 +62,8 @@
       ffmpeg
       google-cloud-sdk
       grex
+      hledger
+      hledger-interest
       htmlq
       hyperfine
       imagemagick
