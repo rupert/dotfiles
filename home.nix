@@ -301,6 +301,10 @@
       if [ -e "$HOME/.cargo/env" ]; then
         source "$HOME/.cargo/env"
       fi
+
+      export FZF_DEFAULT_OPTS='--ansi --preview "bat --color always --style plain {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+      export FZF_DEFAULT_COMMAND='fd --type file --color always'
+      export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     '';
 
     enableCompletion = true;
