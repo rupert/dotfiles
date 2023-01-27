@@ -88,7 +88,6 @@
         fonts = ["FiraCode"];
       })
 
-      (import ./ghz.nix {})
       (import ./kubefwd.nix {})
     ];
 
