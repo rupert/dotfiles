@@ -36,7 +36,6 @@
     stateVersion = "22.05";
 
     packages = with pkgs; [
-      act
       age
       alejandra
       coreutils-prefixed
