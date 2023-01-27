@@ -79,7 +79,7 @@
       sqlite-interactive
       tree
       watch
-      #watchexec
+      watchexec
       youtube-dl
       zstd
 
