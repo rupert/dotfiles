@@ -38,6 +38,7 @@
     packages = with pkgs; [
       age
       alejandra
+      awscli2
       coreutils-prefixed
       curl
       difftastic
@@ -54,19 +55,22 @@
       htmlq
       hyperfine
       imagemagick
+      inetutils
       jq
       kubectl
       kubectx
       kubeseal
+      netlify-cli
       nix-index
       nix-info
       nixpkgs-fmt
-      nodejs
+      nodejs_20
+      nodePackages.pnpm
       openjdk11
       parallel
       pgcli
-      protobuf
       postgresql
+      protobuf
       pwgen
       python39
       redis
@@ -77,6 +81,7 @@
       shellcheck
       source-code-pro
       sqlite-interactive
+      ssm-session-manager-plugin
       tree
       watch
       watchexec
@@ -87,7 +92,7 @@
         fonts = ["FiraCode"];
       })
 
-      (import ./kubefwd.nix {})
+      (pkgs.callPackage ./sst.nix {})
     ];
 
     sessionVariables =
@@ -294,8 +299,8 @@
     '';
 
     enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
   };
 
   programs.neovim = {
