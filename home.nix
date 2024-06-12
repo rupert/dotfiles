@@ -39,6 +39,7 @@
       age
       alejandra
       awscli2
+      black
       coreutils-prefixed
       curl
       difftastic
