@@ -221,7 +221,7 @@
     enable = true;
 
     settings = {
-      format = "$directory$git_branch$git_commit$git_state$git_status$fill( $python)( $kubernetes)( $cmd_duration)$line_break$character";
+      format = "$directory$git_branch$git_commit$git_state$git_status$fill( $python)( $kubernetes)( $aws)( $cmd_duration)$line_break$character";
 
       cmd_duration = {
         format = "[$duration]($style)";
