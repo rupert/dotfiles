@@ -4,31 +4,6 @@
   lib,
   ...
 }: {
-  nixpkgs.overlays = [
-    (self: super: {
-      python39 = super.python39.override {
-        packageOverrides = pself: psuper: {
-          pyopenssl = psuper.pyopenssl.overrideAttrs (old: {
-            meta = with old; {
-              inherit meta;
-              broken = false;
-            };
-          });
-        };
-      };
-      python310 = super.python310.override {
-        packageOverrides = pself: psuper: {
-          pyopenssl = psuper.pyopenssl.overrideAttrs (old: {
-            meta = with old; {
-              inherit meta;
-              broken = false;
-            };
-          });
-        };
-      };
-    })
-  ];
-
   home = {
     username = "rupert";
     homeDirectory = "/Users/rupert";
@@ -67,13 +42,11 @@
       nixpkgs-fmt
       nodejs_20
       nodePackages.pnpm
-      openjdk11
+      openjdk17
       parallel
-      pgcli
       postgresql
       protobuf
       pwgen
-      python39
       redis
       ripgrep
       roboto
@@ -93,7 +66,13 @@
         fonts = ["FiraCode"];
       })
 
-      (pkgs.callPackage ./sst.nix {})
+      (python312.withPackages (python-pkgs: [
+        python-pkgs.pip
+      ]))
+
+      (pulumi.withPackages (pulumi-pkgs: [
+        pulumi-pkgs.pulumi-language-nodejs
+      ]))
     ];
 
     sessionVariables =
