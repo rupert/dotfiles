@@ -24,7 +24,6 @@
       exiftool
       fd
       ffmpeg
-      google-cloud-sdk
       grex
       hledger
       hledger-interest
@@ -33,9 +32,6 @@
       imagemagick
       inetutils
       jq
-      kubectl
-      kubectx
-      kubeseal
       netlify-cli
       nix-index
       nix-info
