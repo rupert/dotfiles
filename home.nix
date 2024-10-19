@@ -59,7 +59,6 @@
       tree
       watch
       watchexec
-      youtube-dl
       zstd
 
       (nerdfonts.override {
