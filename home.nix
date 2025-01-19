@@ -32,14 +32,15 @@
       imagemagick
       inetutils
       jq
+      nerd-fonts.fira-code
       netlify-cli
       nix-index
       nix-info
       nixpkgs-fmt
       nodejs_20
-      nodePackages.pnpm
       openjdk17
       parallel
+      pnpm
       postgresql
       protobuf
       pwgen
@@ -56,10 +57,6 @@
       watch
       watchexec
       zstd
-
-      (nerdfonts.override {
-        fonts = ["FiraCode"];
-      })
 
       (python312.withPackages (python-pkgs: [
         python-pkgs.pip
