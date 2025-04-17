@@ -63,7 +63,7 @@
       ]))
 
       (pulumi.withPackages (pulumi-pkgs: [
-        pulumi-pkgs.pulumi-language-nodejs
+        pulumi-pkgs.pulumi-nodejs
       ]))
     ];
 
