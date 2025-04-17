@@ -174,6 +174,11 @@
         colorMoved = "default";
       };
 
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+      };
+
       credential.helper = "osxkeychain";
       branch.autosetuprebase = "always";
       color.ui = true;
@@ -182,7 +187,6 @@
       fetch.prune = true;
       merge.conflictstyle = "diff3";
       help.autocorrect = 1;
-      push.default = "simple";
     };
 
     lfs.enable = true;
