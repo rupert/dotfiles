@@ -86,9 +86,7 @@
       };
 
     sessionPath = [
-      "$HOME/.poetry/bin"
       "$HOME/.local/bin"
-      "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
     ];
   };
 
