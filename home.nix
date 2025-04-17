@@ -37,7 +37,7 @@
       nix-index
       nix-info
       nixpkgs-fmt
-      nodejs_20
+      nodejs_22
       openjdk17
       parallel
       pnpm
