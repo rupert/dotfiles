@@ -14,6 +14,7 @@
       age
       alejandra
       awscli2
+      bash
       black
       coreutils-prefixed
       curl
@@ -88,6 +89,10 @@
     sessionPath = [
       "$HOME/.local/bin"
     ];
+
+    file.".sqliterc".text = ''
+     .mode table
+    '';
   };
 
   programs.bat.enable = true;
