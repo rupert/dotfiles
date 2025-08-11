@@ -88,10 +88,15 @@
 
     sessionPath = [
       "$HOME/.local/bin"
+      "$HOME/.npm/bin"
     ];
 
     file.".sqliterc".text = ''
      .mode table
+    '';
+
+    file.".npmrc".text = ''
+      prefix=~/.npm
     '';
   };
 
