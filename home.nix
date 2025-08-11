@@ -270,6 +270,9 @@
       bindkey "^X^E" edit-command-line
 
       source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+
+      # TODO sessionPath does not work in VS Code integrated terminal
+      export PATH="$HOME/.npm/bin:$PATH"
     '';
 
     envExtra = ''
