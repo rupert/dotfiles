@@ -98,6 +98,12 @@
     file.".npmrc".text = ''
       prefix=~/.npm
     '';
+
+    activation = {
+      installClaudeCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        npm install --global --quiet @anthropic-ai/claude-code
+      '';
+    };
   };
 
   programs.bat.enable = true;
