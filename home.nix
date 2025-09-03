@@ -1,9 +1,9 @@
 {
-  config,
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   home = {
     username = "rupert";
     homeDirectory = "/Users/rupert";
@@ -35,6 +35,7 @@
       jq
       nerd-fonts.fira-code
       netlify-cli
+      nil
       nix-index
       nix-info
       nixpkgs-fmt
@@ -92,7 +93,7 @@
     ];
 
     file.".sqliterc".text = ''
-     .mode table
+      .mode table
     '';
 
     file.".npmrc".text = ''
