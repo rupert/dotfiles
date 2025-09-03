@@ -101,7 +101,7 @@
     '';
 
     activation = {
-      installClaudeCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      installClaudeCode = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         npm install --global --quiet @anthropic-ai/claude-code
       '';
     };
