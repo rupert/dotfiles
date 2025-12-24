@@ -340,9 +340,9 @@
   programs.ssh = {
     enable = true;
 
-    extraConfig = ''
-      IdentityAgent /Users/rupert/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-    '';
+    matchBlocks."*" = {
+      identityAgent = "/Users/rupert/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
+    };
   };
 
   xdg.configFile.rg.text = ''
