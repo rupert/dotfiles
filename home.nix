@@ -126,15 +126,6 @@
   programs.git = {
     enable = true;
 
-    aliases = {
-      ap = "add --patch";
-      cm = "commit --message";
-      ds = "diff --staged";
-      st = "status --short --branch";
-      undo = "reset --soft HEAD~";
-      up = "!git fetch && git rebase --autostash FETCH_HEAD";
-    };
-
     ignores =
       # Source: https://gist.github.com/octocat/9257657
       [
@@ -173,38 +164,51 @@
         ".envrc"
       ];
 
-    userName = "Rupert Bedford";
-    userEmail = "182958+rupert@users.noreply.github.com";
+    settings = {
+      alias = {
+        ap = "add --patch";
+        cm = "commit --message";
+        ds = "diff --staged";
+        st = "status --short --branch";
+        undo = "reset --soft HEAD~";
+        up = "!git fetch && git rebase --autostash FETCH_HEAD";
+      };
 
-    delta = {
-      enable = true;
-      options.navigate = true;
-    };
+      branch.autosetuprebase = "always";
 
-    extraConfig = {
+      color.ui = true;
       core.editor = "nvim";
+      credential.helper = "osxkeychain";
 
       diff = {
         renames = "copies";
         colorMoved = "default";
       };
 
+      fetch.prune = true;
+      help.autocorrect = 1;
+      merge.conflictstyle = "diff3";
+      pull.rebase = true;
+
       push = {
         default = "simple";
         autoSetupRemote = true;
       };
 
-      credential.helper = "osxkeychain";
-      branch.autosetuprebase = "always";
-      color.ui = true;
       submodule.recurse = true;
-      pull.rebase = true;
-      fetch.prune = true;
-      merge.conflictstyle = "diff3";
-      help.autocorrect = 1;
+
+      user = {
+        name = "Rupert Bedford";
+        email = "182958+rupert@users.noreply.github.com";
+      };
     };
 
     lfs.enable = true;
+  };
+
+  programs.delta = {
+    enable = true;
+    options.navigate = true;
   };
 
   programs.starship = {
