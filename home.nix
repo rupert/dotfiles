@@ -342,6 +342,9 @@
 
     matchBlocks."*" = {
       identityAgent = "/Users/rupert/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
+      setEnv = {
+        TERM = "xterm-256color";
+      };
     };
   };
 
