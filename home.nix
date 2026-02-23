@@ -33,6 +33,9 @@
       imagemagick
       inetutils
       jq
+      mongodb-atlas-cli
+      mongodb-tools
+      mongosh
       nerd-fonts.fira-code
       netlify-cli
       nil
