@@ -4,6 +4,8 @@
   ...
 }:
 {
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     username = "rupert";
     homeDirectory = "/Users/rupert";
@@ -102,12 +104,6 @@
     file.".npmrc".text = ''
       prefix=~/.npm
     '';
-
-    activation = {
-      installClaudeCode = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        npm install --global --quiet @anthropic-ai/claude-code
-      '';
-    };
   };
 
   programs.bat.enable = true;
@@ -119,6 +115,7 @@
   programs.htop.enable = true;
   programs.lazygit.enable = true;
   programs.zoxide.enable = true;
+  programs.claude-code.enable = true;
 
   programs.direnv = {
     enable = true;
