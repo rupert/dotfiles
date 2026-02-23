@@ -44,7 +44,6 @@
       nix-index
       nix-info
       nixpkgs-fmt
-      nodejs_22
       openjdk17
       parallel
       pnpm
@@ -100,13 +99,10 @@
     file.".sqliterc".text = ''
       .mode table
     '';
-
-    file.".npmrc".text = ''
-      prefix=~/.npm
-    '';
   };
 
   programs.bat.enable = true;
+  programs.claude-code.enable = true;
   programs.dircolors.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
@@ -115,7 +111,6 @@
   programs.htop.enable = true;
   programs.lazygit.enable = true;
   programs.zoxide.enable = true;
-  programs.claude-code.enable = true;
 
   programs.direnv = {
     enable = true;
@@ -323,6 +318,14 @@
       autocmd BufRead * autocmd FileType <buffer> ++once
         \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
     '';
+  };
+
+  programs.npm = {
+    enable = true;
+    package = pkgs.nodejs_24;
+    settings = {
+      prefix = "\${HOME}/.npm";
+    };
   };
 
   programs.tmux = {
