@@ -24,6 +24,7 @@
       dive
       docker
       docker-compose
+      duckdb
       exiftool
       fd
       ffmpeg
