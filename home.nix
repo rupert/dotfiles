@@ -183,6 +183,7 @@
 
       fetch.prune = true;
       help.autocorrect = 1;
+      init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
       pull.rebase = true;
 
