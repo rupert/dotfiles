@@ -61,6 +61,7 @@
       sqlite-interactive
       ssm-session-manager-plugin
       tree
+      uv
       watch
       watchexec
       zstd
