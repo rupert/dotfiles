@@ -347,11 +347,24 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
     matchBlocks."*" = {
+      forwardAgent = false;
+      compression = false;
+      serverAliveInterval = 0;
+      serverAliveCountMax = 3;
       identityAgent = "/Users/rupert/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       setEnv = {
         TERM = "xterm-256color";
+      };
+      extraOptions = {
+        AddKeysToAgent = "no";
+        HashKnownHosts = "no";
+        UserKnownHostsFile = "~/.ssh/known_hosts";
+        ControlMaster = "no";
+        ControlPath = "~/.ssh/master-%r@%n:%p";
+        ControlPersist = "no";
       };
     };
   };
