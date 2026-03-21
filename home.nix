@@ -101,6 +101,8 @@
     file.".sqliterc".text = ''
       .mode table
     '';
+
+    file.".hammerspoon/init.lua".source = ./hammerspoon/init.lua;
   };
 
   programs.bat.enable = true;
