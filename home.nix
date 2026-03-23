@@ -98,6 +98,19 @@
       "$HOME/.npm/bin"
     ];
 
+    file.".duckdbrc".text = ''
+      INSTALL httpfs;
+      LOAD httpfs;
+
+      INSTALL aws;
+      LOAD aws;
+
+      CREATE SECRET (
+          TYPE s3,
+          PROVIDER credential_chain
+      );
+    '';
+
     file.".sqliterc".text = ''
       .mode table
     '';
