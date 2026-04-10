@@ -138,6 +138,8 @@
   programs.git = {
     enable = true;
 
+    signing.format = null;
+
     ignores =
       # Source: https://gist.github.com/octocat/9257657
       [
@@ -310,6 +312,9 @@
 
   programs.neovim = {
     enable = true;
+
+    withPython3 = false;
+    withRuby = false;
 
     plugins = with pkgs.vimPlugins; [
       telescope-nvim
