@@ -44,6 +44,7 @@
       nil
       nix-index
       nix-info
+      nixd
       nixpkgs-fmt
       openjdk17
       parallel
