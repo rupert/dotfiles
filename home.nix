@@ -53,6 +53,7 @@
       protobuf
       pwgen
       redis
+      restic
       ripgrep
       roboto
       roboto-mono
