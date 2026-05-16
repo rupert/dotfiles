@@ -77,23 +77,21 @@
       ]))
     ];
 
-    sessionVariables =
-      {
-        CLICOLOR = "1";
-        EDITOR = "nvim";
-        RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
-      }
-      // (lib.mkIf pkgs.stdenv.isDarwin {
-        SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
-      });
+    sessionVariables = {
+      CLICOLOR = "1";
+      EDITOR = "nvim";
+      RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
+    }
+    // (lib.mkIf pkgs.stdenv.isDarwin {
+      SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
+    });
 
-    shellAliases =
-      {
-        lg = "lazygit";
-      }
-      // (lib.mkIf pkgs.stdenv.isLinux {
-        ls = "ls --color=auto";
-      });
+    shellAliases = {
+      lg = "lazygit";
+    }
+    // (lib.mkIf pkgs.stdenv.isLinux {
+      ls = "ls --color=auto";
+    });
 
     sessionPath = [
       "$HOME/.local/bin"
