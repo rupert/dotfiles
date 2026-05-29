@@ -119,7 +119,6 @@
   };
 
   programs.bat.enable = true;
-  programs.claude-code.enable = true;
   programs.dircolors.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
@@ -133,6 +132,33 @@
     enable = true;
 
     nix-direnv.enable = true;
+  };
+
+  programs.claude-code = {
+    enable = true;
+
+    settings = {
+      model = "sonnet";
+      enabledPlugins = {
+        "typescript-lsp@claude-plugins-official" = true;
+        "context7@claude-plugins-official" = true;
+        "code-review@claude-plugins-official" = true;
+        "github@claude-plugins-official" = true;
+        "figma@claude-plugins-official" = true;
+        "linear@claude-plugins-official" = true;
+      };
+      alwaysThinkingEnabled = true;
+      effortLevel = "high";
+      defaultMode = "acceptEdits";
+      permissions = {
+        allow = [
+          "Bash(gh pr view *)"
+          "Bash(gh pr checks *)"
+          "Bash(gh run view *)"
+          "Bash(git push)"
+        ];
+      };
+    };
   };
 
   programs.git = {
