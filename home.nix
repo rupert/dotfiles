@@ -138,7 +138,7 @@
     enable = true;
 
     settings = {
-      model = "sonnet";
+      model = "opus";
       enabledPlugins = {
         "typescript-lsp@claude-plugins-official" = true;
         "code-review@claude-plugins-official" = true;
