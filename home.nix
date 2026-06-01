@@ -141,22 +141,25 @@
       model = "sonnet";
       enabledPlugins = {
         "typescript-lsp@claude-plugins-official" = true;
-        "context7@claude-plugins-official" = true;
         "code-review@claude-plugins-official" = true;
-        "github@claude-plugins-official" = true;
         "figma@claude-plugins-official" = true;
         "linear@claude-plugins-official" = true;
       };
       alwaysThinkingEnabled = true;
       effortLevel = "high";
       defaultMode = "acceptEdits";
-      permissions = {
-        allow = [
-          "Bash(gh pr view *)"
-          "Bash(gh pr checks *)"
-          "Bash(gh run view *)"
-          "Bash(git push)"
-        ];
+      sandbox = {
+        enabled = true;
+        autoAllowBashIfSandboxed = true;
+        allowUnsandboxedCommands = true;
+        filesystem = {
+          denyRead = ["~/.aws/"];
+        };
+        network = {
+          allowedDomains = ["github.com"];
+          deniedDomains = ["uploads.github.com"];
+          allowLocalBinding = true;
+        };
       };
     };
   };
