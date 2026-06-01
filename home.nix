@@ -151,7 +151,7 @@
       sandbox = {
         enabled = true;
         autoAllowBashIfSandboxed = true;
-        allowUnsandboxedCommands = true;
+        allowUnsandboxedCommands = false;
         filesystem = {
           denyRead = ["~/.aws/"];
         };
