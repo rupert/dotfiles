@@ -147,19 +147,33 @@
       };
       alwaysThinkingEnabled = true;
       effortLevel = "high";
-      defaultMode = "acceptEdits";
+      permissions = {
+        defaultMode = "acceptEdits";
+      };
       sandbox = {
         enabled = true;
         autoAllowBashIfSandboxed = true;
         allowUnsandboxedCommands = false;
         filesystem = {
+          allowWrite = [
+            "/tmp/"
+            "~/Library/pnpm/store/"
+            ".cache/mongodb-binaries/"
+          ];
           denyRead = ["~/.aws/"];
         };
         network = {
-          allowedDomains = ["github.com"];
+          allowedDomains = [
+            "api.github.com"
+            "github.com"
+            "results-receiver.actions.githubusercontent.com"
+            "*.npmjs.org"
+          ];
           deniedDomains = ["uploads.github.com"];
           allowLocalBinding = true;
+          allowAllUnixSockets = true;
         };
+        enableWeakerNetworkIsolation = true;
       };
     };
   };
