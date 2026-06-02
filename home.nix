@@ -160,7 +160,7 @@
             "~/Library/pnpm/store/"
             ".cache/mongodb-binaries/"
           ];
-          denyRead = ["~/.aws/"];
+          denyRead = [ "~/.aws/" ];
         };
         network = {
           allowedDomains = [
@@ -169,7 +169,7 @@
             "results-receiver.actions.githubusercontent.com"
             "*.npmjs.org"
           ];
-          deniedDomains = ["uploads.github.com"];
+          deniedDomains = [ "uploads.github.com" ];
           allowLocalBinding = true;
           allowAllUnixSockets = true;
         };
@@ -433,7 +433,7 @@
     --no-heading
   '';
 
-  xdg.configFile."zed/settings.json".source = (pkgs.formats.json {}).generate "zed-settings.json" {
+  xdg.configFile."zed/settings.json".source = (pkgs.formats.json { }).generate "zed-settings.json" {
     terminal.font_size = 13;
     auto_update = false;
     telemetry = {
@@ -478,7 +478,7 @@
         ];
       };
     };
-    lsp.eslint.settings.codeActionOnSave.rules = ["import/order"];
+    lsp.eslint.settings.codeActionOnSave.rules = [ "import/order" ];
   };
 
   targets.darwin.defaults = {
