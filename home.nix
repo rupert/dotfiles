@@ -433,6 +433,54 @@
     --no-heading
   '';
 
+  xdg.configFile."zed/settings.json".source = (pkgs.formats.json {}).generate "zed-settings.json" {
+    terminal.font_size = 13;
+    auto_update = false;
+    telemetry = {
+      diagnostics = false;
+      metrics = false;
+    };
+    agent_servers.claude-acp.type = "registry";
+    ui_font_size = 15;
+    buffer_font_size = 13;
+    theme = {
+      mode = "system";
+      light = "One Light";
+      dark = "One Dark";
+    };
+    languages = {
+      TypeScript = {
+        format_on_save = "on";
+        code_actions_on_format = {
+          "source.addMissingImports" = true;
+          "source.removeUnusedImports" = true;
+          "source.fixAll.eslint" = true;
+        };
+        language_servers = [
+          "!tsgo"
+          "!vtsls"
+          "!tailwindcss-language-server"
+          "..."
+        ];
+      };
+      TSX = {
+        format_on_save = "on";
+        code_actions_on_format = {
+          "source.addMissingImports" = true;
+          "source.removeUnusedImports" = true;
+          "source.fixAll.eslint" = true;
+        };
+        language_servers = [
+          "!tsgo"
+          "!vtsls"
+          "!tailwindcss-language-server"
+          "..."
+        ];
+      };
+    };
+    lsp.eslint.settings.codeActionOnSave.rules = ["import/order"];
+  };
+
   targets.darwin.defaults = {
     NSGlobalDomain = {
       NSAutomaticCapitalizationEnabled = false;
