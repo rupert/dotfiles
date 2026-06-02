@@ -479,6 +479,7 @@
       };
     };
     lsp.eslint.settings.codeActionOnSave.rules = [ "import/order" ];
+    which_key.enabled = true;
   };
 
   targets.darwin.defaults = {
