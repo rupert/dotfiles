@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -441,55 +442,8 @@
     --no-heading
   '';
 
-  xdg.configFile."zed/settings.json".source = (pkgs.formats.json { }).generate "zed-settings.json" {
-    terminal.font_size = 13;
-    auto_update = false;
-    telemetry = {
-      diagnostics = false;
-      metrics = false;
-    };
-    agent_servers.claude-acp.type = "registry";
-    ui_font_size = 15;
-    buffer_font_size = 13;
-    theme = {
-      mode = "system";
-      light = "One Light";
-      dark = "One Dark";
-    };
-    code_lens = "on";
-    languages = {
-      TypeScript = {
-        format_on_save = "on";
-        code_actions_on_format = {
-          "source.addMissingImports" = true;
-          "source.removeUnusedImports" = true;
-          "source.fixAll.eslint" = true;
-        };
-        language_servers = [
-          "!tsgo"
-          "!typescript-language-server"
-          "!tailwindcss-language-server"
-          "..."
-        ];
-      };
-      TSX = {
-        format_on_save = "on";
-        code_actions_on_format = {
-          "source.addMissingImports" = true;
-          "source.removeUnusedImports" = true;
-          "source.fixAll.eslint" = true;
-        };
-        language_servers = [
-          "!tsgo"
-          "!typescript-language-server"
-          "!tailwindcss-language-server"
-          "..."
-        ];
-      };
-    };
-    lsp.eslint.settings.codeActionOnSave.rules = [ "import/order" ];
-    which_key.enabled = true;
-  };
+  xdg.configFile."zed/settings.json".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Developer/dotfiles/zed-settings.json";
 
   targets.darwin.defaults = {
     NSGlobalDomain = {

@@ -1,0 +1,68 @@
+{
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "auto_update": false,
+  "buffer_font_size": 13,
+  "code_lens": "on",
+  "languages": {
+    "TSX": {
+      "code_actions_on_format": {
+        "source.addMissingImports": true,
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true,
+      },
+      "format_on_save": "on",
+      "language_servers": [
+        "!tsgo",
+        "!typescript-language-server",
+        "!tailwindcss-language-server",
+        "...",
+      ],
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.addMissingImports": true,
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true,
+      },
+      "format_on_save": "on",
+      "language_servers": [
+        "!tsgo",
+        "!typescript-language-server",
+        "!tailwindcss-language-server",
+        "...",
+      ],
+    },
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": ["import/order"],
+        },
+      },
+    },
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "terminal": {
+    "font_size": 13,
+  },
+  "theme": {
+    "dark": "One Dark",
+    "light": "One Light",
+    "mode": "system",
+  },
+  "ui_font_size": 15,
+  "which_key": {
+    "enabled": true,
+  },
+}
