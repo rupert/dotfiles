@@ -456,6 +456,7 @@
       light = "One Light";
       dark = "One Dark";
     };
+    code_lens = "on";
     languages = {
       TypeScript = {
         format_on_save = "on";
