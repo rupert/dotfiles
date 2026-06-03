@@ -48,7 +48,6 @@
       nixpkgs-fmt
       openjdk17
       parallel
-      pnpm
       postgresql
       protobuf
       pwgen
@@ -116,6 +115,14 @@
     '';
 
     file.".hammerspoon/init.lua".source = ./hammerspoon/init.lua;
+
+    file.".local/bin/pnpm" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        exec corepack pnpm "$@"
+      '';
+    };
   };
 
   programs.bat.enable = true;
