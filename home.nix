@@ -164,6 +164,7 @@
         filesystem = {
           allowWrite = [
             "/tmp/"
+            "/private/tmp/"
             "~/Library/pnpm/store/"
             ".cache/mongodb-binaries/"
           ];
