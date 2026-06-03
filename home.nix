@@ -465,7 +465,7 @@
         };
         language_servers = [
           "!tsgo"
-          "!vtsls"
+          "!typescript-language-server"
           "!tailwindcss-language-server"
           "..."
         ];
@@ -479,7 +479,7 @@
         };
         language_servers = [
           "!tsgo"
-          "!vtsls"
+          "!typescript-language-server"
           "!tailwindcss-language-server"
           "..."
         ];
