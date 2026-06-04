@@ -124,9 +124,13 @@
         exec corepack pnpm "$@"
       '';
     };
+
+    file.".claude/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Developer/dotfiles/claude-settings.json";
   };
 
   programs.bat.enable = true;
+  programs.claude-code.enable = true;
   programs.dircolors.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
@@ -140,51 +144,6 @@
     enable = true;
 
     nix-direnv.enable = true;
-  };
-
-  programs.claude-code = {
-    enable = true;
-
-    settings = {
-      model = "opus";
-      enabledPlugins = {
-        "typescript-lsp@claude-plugins-official" = true;
-        "code-review@claude-plugins-official" = true;
-        "figma@claude-plugins-official" = true;
-        "linear@claude-plugins-official" = true;
-      };
-      alwaysThinkingEnabled = true;
-      effortLevel = "high";
-      permissions = {
-        defaultMode = "acceptEdits";
-      };
-      sandbox = {
-        enabled = true;
-        autoAllowBashIfSandboxed = true;
-        allowUnsandboxedCommands = false;
-        filesystem = {
-          allowWrite = [
-            "/tmp/"
-            "/private/tmp/"
-            "~/Library/pnpm/store/"
-            "~/.cache/"
-          ];
-          denyRead = [ "~/.aws/" ];
-        };
-        network = {
-          allowedDomains = [
-            "api.github.com"
-            "github.com"
-            "results-receiver.actions.githubusercontent.com"
-            "*.npmjs.org"
-          ];
-          deniedDomains = [ "uploads.github.com" ];
-          allowLocalBinding = true;
-          allowAllUnixSockets = true;
-        };
-        enableWeakerNetworkIsolation = true;
-      };
-    };
   };
 
   programs.git = {
