@@ -167,7 +167,7 @@
             "/tmp/"
             "/private/tmp/"
             "~/Library/pnpm/store/"
-            ".cache/mongodb-binaries/"
+            "~/.cache/"
           ];
           denyRead = [ "~/.aws/" ];
         };
