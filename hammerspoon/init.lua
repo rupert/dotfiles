@@ -1,5 +1,7 @@
 hs.window.animationDuration = 0
 
+local hyper = {"cmd", "alt", "ctrl", "shift"}
+
 function getMargin(win)
   local screen = win:screen()
   local max = screen:fullFrame()
@@ -13,7 +15,7 @@ function getMargin(win)
   return (max.w - width) / 2
 end
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Left", function()
+hs.hotkey.bind(hyper, "Left", function()
   local win = hs.window.focusedWindow()
 
   if (win == nil) then
@@ -35,7 +37,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Left", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Right", function()
+hs.hotkey.bind(hyper, "Right", function()
   local win = hs.window.focusedWindow()
 
   if (win == nil) then
@@ -57,7 +59,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Right", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "C", function()
+hs.hotkey.bind(hyper, "C", function()
   local win = hs.window.focusedWindow()
 
   if (win == nil) then
@@ -67,7 +69,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "C", function()
   win:centerOnScreen()
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "M", function()
+hs.hotkey.bind(hyper, "M", function()
   local win = hs.window.focusedWindow()
 
   if (win == nil) then
@@ -88,4 +90,4 @@ hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "M", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.showHotkeys({"cmd", "alt", "ctrl", "shift"}, "H")
+hs.hotkey.showHotkeys(hyper, "H")
