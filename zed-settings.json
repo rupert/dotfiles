@@ -10,7 +10,6 @@
   },
   "auto_update": false,
   "buffer_font_size": 13,
-  "code_lens": "on",
   "languages": {
     "TSX": {
       "code_actions_on_format": {
