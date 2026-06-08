@@ -19,6 +19,7 @@
       awscli2
       bash
       black
+      (lib.hiPrio corepack)
       coreutils-prefixed
       curl
       difftastic
@@ -116,14 +117,6 @@
     '';
 
     file.".hammerspoon/init.lua".source = ./hammerspoon/init.lua;
-
-    file.".local/bin/pnpm" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        exec corepack pnpm "$@"
-      '';
-    };
 
     file.".claude/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Developer/dotfiles/claude-settings.json";
