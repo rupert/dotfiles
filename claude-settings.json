@@ -1,34 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "permissions": {
+    "defaultMode": "acceptEdits"
+  },
+  "model": "opus",
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "model": "opus",
-  "permissions": {
-    "defaultMode": "acceptEdits"
-  },
   "sandbox": {
-    "allowUnsandboxedCommands": false,
-    "autoAllowBashIfSandboxed": true,
-    "enableWeakerNetworkIsolation": true,
     "enabled": true,
-    "filesystem": {
-      "allowWrite": [
-        "/tmp/",
-        "/private/tmp/",
-        "~/Library/pnpm/store/",
-        "~/.cache/"
-      ],
-      "denyRead": ["~/.aws/"]
-    },
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": false,
     "network": {
-      "allowAllUnixSockets": true,
-      "allowLocalBinding": true,
       "allowedDomains": [
         "api.github.com",
         "github.com",
@@ -36,7 +22,26 @@
         "*.blob.core.windows.net",
         "*.npmjs.org"
       ],
-      "deniedDomains": ["uploads.github.com"]
-    }
-  }
+      "deniedDomains": [
+        "uploads.github.com"
+      ],
+      "allowAllUnixSockets": true,
+      "allowLocalBinding": true
+    },
+    "filesystem": {
+      "allowWrite": [
+        "/tmp/",
+        "/private/tmp/",
+        "~/Library/pnpm/store/",
+        "~/.cache/"
+      ],
+      "denyRead": [
+        "~/.aws/"
+      ]
+    },
+    "enableWeakerNetworkIsolation": true
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "skipAutoPermissionPrompt": true
 }
