@@ -1,4 +1,6 @@
-local eslint_on_attach = vim.lsp.config.eslint.on_attach
+require("blink.cmp").setup({
+  keymap = { preset = "super-tab" },
+})
 
 vim.lsp.config("eslint", {
   settings = {
@@ -6,19 +8,42 @@ vim.lsp.config("eslint", {
     workingDirectory = { mode = "auto" },
     codeActionOnSave = { enable = true, mode = "problems" },
   },
-  on_attach = function(client, buffer)
-    if not eslint_on_attach then return end
+})
 
-    eslint_on_attach(client, buffer)
+vim.lsp.config("vtsls", {
+  settings = {
+    typescript = { format = { enable = false } },
+  },
+})
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = buffer,
-      command = "LspEslintFixAll",
-    })
+vim.lsp.enable({ "vtsls", "eslint", "nixd" })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = function(event)
+    local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+
+    if client.name == "eslint" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        buffer = event.buf,
+        command = "LspEslintFixAll",
+      })
+      return
+    end
+
+    if client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        buffer = event.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
+        end,
+      })
+    end
   end,
 })
 
-vim.lsp.enable({ "vtsls", "eslint" })
 
 vim.diagnostic.config({ virtual_text = true })
 

@@ -328,11 +328,13 @@
     withRuby = false;
 
     plugins = with pkgs.vimPlugins; [
+      blink-cmp
       nvim-lspconfig
       telescope-nvim
       tokyonight-nvim
       plenary-nvim
       vim-nix
+      vim-sleuth
     ];
 
     viAlias = true;
