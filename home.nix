@@ -65,6 +65,8 @@
       ssm-session-manager-plugin
       tree
       uv
+      vscode-langservers-extracted
+      vtsls
       watch
       watchexec
       zstd
@@ -321,6 +323,7 @@
     withRuby = false;
 
     plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
       telescope-nvim
       tokyonight-nvim
       plenary-nvim
@@ -333,18 +336,11 @@
     extraConfig = ''
       colorscheme tokyonight
 
-      let mapleader = " "
-
-      nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-      nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-      nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-      nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-      imap <silent> <M-3> #
-
       autocmd BufRead * autocmd FileType <buffer> ++once
         \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
     '';
+
+    initLua = builtins.readFile ./init.lua;
   };
 
   programs.npm = {
