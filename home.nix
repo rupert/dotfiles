@@ -65,8 +65,6 @@
       ssm-session-manager-plugin
       tree
       uv
-      vscode-langservers-extracted
-      vtsls
       watch
       watchexec
       zstd
@@ -318,6 +316,11 @@
 
   programs.neovim = {
     enable = true;
+
+    extraPackages = with pkgs; [
+      vscode-langservers-extracted
+      vtsls
+    ];
 
     withPython3 = false;
     withRuby = false;
