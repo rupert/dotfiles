@@ -22,6 +22,8 @@ vim.lsp.enable({ "vtsls", "eslint" })
 
 vim.diagnostic.config({ virtual_text = true })
 
+vim.cmd.colorscheme("tokyonight")
+
 vim.g.mapleader = " "
 
 local telescope = require("telescope.builtin")
