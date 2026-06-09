@@ -318,6 +318,8 @@
     enable = true;
 
     extraPackages = with pkgs; [
+      nixd
+      nixfmt
       vscode-langservers-extracted
       vtsls
     ];
