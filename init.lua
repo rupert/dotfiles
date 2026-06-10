@@ -51,4 +51,9 @@ vim.keymap.set("n", "<leader>fg", telescope.live_grep)
 vim.keymap.set("n", "<leader>fb", telescope.buffers)
 vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
+vim.keymap.set("n", "gO", telescope.lsp_document_symbols, { desc = "Document symbols" })
+vim.keymap.set("n", "grr", telescope.lsp_references, { desc = "References" })
+vim.keymap.set("n", "gri", telescope.lsp_implementations, { desc = "Implementations" })
+vim.keymap.set("n", "grt", telescope.lsp_type_definitions, { desc = "Type definitions" })
+
 vim.keymap.set("i", "<M-3>", "#", { silent = true })
