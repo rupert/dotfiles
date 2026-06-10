@@ -10,13 +10,7 @@ vim.lsp.config("eslint", {
   },
 })
 
-vim.lsp.config("vtsls", {
-  settings = {
-    typescript = { format = { enable = false } },
-  },
-})
-
-vim.lsp.enable({ "vtsls", "eslint", "nixd" })
+vim.lsp.enable({ "tsgo", "eslint", "nixd" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),

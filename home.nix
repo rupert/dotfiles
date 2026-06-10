@@ -320,8 +320,8 @@
     extraPackages = with pkgs; [
       nixd
       nixfmt
+      typescript-go
       vscode-langservers-extracted
-      vtsls
     ];
 
     withPython3 = false;
