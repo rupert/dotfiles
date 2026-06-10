@@ -329,6 +329,7 @@
 
     plugins = with pkgs.vimPlugins; [
       blink-cmp
+      gitsigns-nvim
       nvim-lspconfig
       telescope-nvim
       tokyonight-nvim

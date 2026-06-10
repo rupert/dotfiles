@@ -2,6 +2,10 @@ require("blink.cmp").setup({
   keymap = { preset = "super-tab" },
 })
 
+require("gitsigns").setup({
+  current_line_blame = true
+})
+
 vim.lsp.config("eslint", {
   settings = {
     format = { enable = true },
