@@ -332,7 +332,6 @@
       nvim-lspconfig
       telescope-nvim
       tokyonight-nvim
-      plenary-nvim
       vim-nix
       vim-sleuth
     ];
