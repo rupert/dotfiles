@@ -330,7 +330,13 @@
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       gitsigns-nvim
+      neotest
+      neotest-vitest
       nvim-lspconfig
+      nvim-treesitter
+      (nvim-treesitter.withPlugins (p: [
+        p.typescript
+      ]))
       telescope-nvim
       tokyonight-nvim
       vim-nix

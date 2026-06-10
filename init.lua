@@ -6,6 +6,12 @@ require("gitsigns").setup({
   current_line_blame = true
 })
 
+require("neotest").setup({
+  adapters = {
+    require("neotest-vitest")
+  }
+})
+
 vim.lsp.config("eslint", {
   settings = {
     format = { enable = true },
