@@ -22,14 +22,16 @@ vim.lsp.config("eslint", {
 
 vim.lsp.enable({ "tsgo", "eslint", "nixd" })
 
+local lsp_group = vim.api.nvim_create_augroup('my.lsp', {})
+
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  group = lsp_group,
   callback = function(event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
     if client.name == "eslint" then
       vim.api.nvim_create_autocmd("BufWritePre", {
-        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        group = lsp_group,
         buffer = event.buf,
         command = "LspEslintFixAll",
       })
@@ -42,7 +44,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     if client:supports_method('textDocument/formatting') then
       vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        group = lsp_group,
         buffer = event.buf,
         callback = function()
           vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
