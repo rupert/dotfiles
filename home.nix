@@ -333,9 +333,20 @@
       neotest
       neotest-vitest
       nvim-lspconfig
-      nvim-treesitter
       (nvim-treesitter.withPlugins (p: [
+        p.bash
+        p.go
+        p.html
+        p.javascript
+        p.json
+        p.lua
+        p.nix
+        p.sql
+        p.toml
+        p.tsx
         p.typescript
+        p.xml
+        p.yaml
       ]))
       telescope-nvim
       tokyonight-nvim
