@@ -51,6 +51,7 @@
       openjdk17
       parallel
       postgresql
+      proto
       protobuf
       pwgen
       redis
@@ -95,6 +96,8 @@
     });
 
     sessionPath = [
+      "$HOME/.proto/shims"
+      "$HOME/.proto/bin"
       "$HOME/.local/bin"
       "$HOME/.npm/bin"
     ];
