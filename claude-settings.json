@@ -32,7 +32,7 @@
       "allowWrite": [
         "/tmp/",
         "/private/tmp/",
-        "~/Library/pnpm/store/",
+        "~/Library/pnpm/",
         "~/.cache/",
         "~/.moon/"
       ],
