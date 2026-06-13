@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("blink.cmp").setup({
   keymap = { preset = "super-tab" },
 })
@@ -22,7 +24,7 @@ vim.lsp.config("eslint", {
 
 vim.lsp.enable({ "tsgo", "eslint", "nixd" })
 
-local lsp_group = vim.api.nvim_create_augroup('my.lsp', {})
+local lsp_group = vim.api.nvim_create_augroup('my.lsp', { clear = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_group,
@@ -55,14 +57,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('my.treesitter', { clear = true }),
   callback = function(args) pcall(vim.treesitter.start, args.buf) end,
 })
 
 vim.diagnostic.config({ virtual_text = true })
 
 vim.cmd.colorscheme("tokyonight")
-
-vim.g.mapleader = " "
 
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", telescope.find_files)
@@ -74,5 +75,3 @@ vim.keymap.set("n", "gO", telescope.lsp_document_symbols, { desc = "Document sym
 vim.keymap.set("n", "grr", telescope.lsp_references, { desc = "References" })
 vim.keymap.set("n", "gri", telescope.lsp_implementations, { desc = "Implementations" })
 vim.keymap.set("n", "grt", telescope.lsp_type_definitions, { desc = "Type definitions" })
-
-vim.keymap.set("i", "<M-3>", "#", { silent = true })
