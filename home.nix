@@ -323,7 +323,11 @@
     extraPackages = with pkgs; [
       nixd
       nixfmt
-      typescript-go
+      (typescript-go.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          ./patches/typescript-go-bundled-watchers.patch # https://github.com/microsoft/typescript-go/pull/3840
+        ];
+      }))
       vscode-langservers-extracted
     ];
 
