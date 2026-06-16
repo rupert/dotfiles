@@ -14,6 +14,8 @@ require("neotest").setup({
   }
 })
 
+require('telescope').load_extension('frecency')
+
 vim.lsp.config("eslint", {
   settings = {
     format = { enable = true },

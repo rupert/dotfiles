@@ -355,6 +355,7 @@
         p.xml
         p.yaml
       ]))
+      telescope-frecency-nvim
       telescope-nvim
       tokyonight-nvim
       vim-nix
