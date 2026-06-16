@@ -358,6 +358,7 @@
       telescope-frecency-nvim
       telescope-nvim
       tokyonight-nvim
+      vim-fugitive
       vim-nix
       vim-sleuth
     ];
