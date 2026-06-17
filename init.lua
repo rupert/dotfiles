@@ -24,7 +24,7 @@ vim.lsp.config("eslint", {
   },
 })
 
-vim.lsp.enable({ "tsgo", "eslint", "nixd" })
+vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp" })
 
 local lsp_group = vim.api.nvim_create_augroup('my.lsp', { clear = true })
 

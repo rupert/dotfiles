@@ -328,6 +328,7 @@
           ./patches/typescript-go-bundled-watchers.patch # https://github.com/microsoft/typescript-go/pull/3840
         ];
       }))
+      typos-lsp
       vscode-langservers-extracted
     ];
 
