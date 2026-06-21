@@ -15,7 +15,6 @@
 
     packages = with pkgs; [
       age
-      alejandra
       awscli2
       bash
       black
