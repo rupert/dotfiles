@@ -34,7 +34,8 @@
         "/private/tmp/",
         "~/Library/pnpm/",
         "~/.cache/",
-        "~/.moon/"
+        "~/.moon/",
+        "~/.proto/"
       ],
       "denyRead": [
         "~/.aws/"
