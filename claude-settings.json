@@ -18,13 +18,13 @@
       "allowedDomains": [
         "api.github.com",
         "github.com",
+        "ghcr.io",
+        "pkg-containers.githubusercontent.com",
         "results-receiver.actions.githubusercontent.com",
         "*.blob.core.windows.net",
         "*.npmjs.org"
       ],
-      "deniedDomains": [
-        "uploads.github.com"
-      ],
+      "deniedDomains": [],
       "allowAllUnixSockets": true,
       "allowLocalBinding": true
     },
