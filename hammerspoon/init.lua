@@ -90,4 +90,18 @@ hs.hotkey.bind(hyper, "M", function()
   win:setFrame(f)
 end)
 
+hs.hotkey.bind(hyper, "N", function()
+  local win = hs.window.focusedWindow()
+
+  if (win == nil) then
+    return
+  end
+
+  if (#hs.screen.allScreens() < 2) then
+    return
+  end
+
+  win:moveToScreen(win:screen():next(), true, true)
+end)
+
 hs.hotkey.showHotkeys(hyper, "H")
