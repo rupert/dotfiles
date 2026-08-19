@@ -342,6 +342,7 @@
 
     plugins = with pkgs.vimPlugins; [
       blink-cmp
+      diffview-nvim
       gitsigns-nvim
       neotest
       neotest-vitest
