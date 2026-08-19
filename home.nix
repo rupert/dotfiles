@@ -125,7 +125,6 @@
   };
 
   programs.bat.enable = true;
-  programs.claude-code.enable = true;
   programs.dircolors.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
@@ -134,6 +133,13 @@
   programs.htop.enable = true;
   programs.lazygit.enable = true;
   programs.zoxide.enable = true;
+
+  programs.claude-code = {
+    enable = true;
+    context = ''
+      I prefer to stage changes myself, do not git commit automatically unless explicitly asked to do so.
+    '';
+  };
 
   programs.direnv = {
     enable = true;
