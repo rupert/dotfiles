@@ -60,12 +60,12 @@ vim.lsp.config("eslint", {
   },
 })
 
-vim.lsp.config('tsc', {
+vim.lsp.config('tsgo', {
   cmd = { 'tsgo', '--lsp', '--stdio' },
   cmd_env = { GOMEMLIMIT = '16GiB' },
 })
 
-vim.lsp.enable({ "tsc", "eslint", "nixd", "typos_lsp", "oxfmt" })
+vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp", "oxfmt" })
 
 local lsp_group = vim.api.nvim_create_augroup('my.lsp', { clear = true })
 
@@ -86,7 +86,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return
     end
 
-    if client.name == "tsc" then
+    if client.name == "tsgo" then
       return
     end
 
