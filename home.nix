@@ -430,9 +430,6 @@
     --no-heading
   '';
 
-  xdg.configFile."zed/settings.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Developer/dotfiles/zed-settings.json";
-
   targets.darwin.defaults = {
     NSGlobalDomain = {
       NSAutomaticCapitalizationEnabled = false;
