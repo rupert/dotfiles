@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.opt.clipboard = "unnamedplus"
 
 require("blink.cmp").setup({
   keymap = { preset = "super-tab" },
