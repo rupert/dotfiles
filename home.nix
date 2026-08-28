@@ -354,6 +354,8 @@
         p.javascript
         p.json
         p.lua
+        p.markdown
+        p.markdown_inline
         p.nix
         p.sql
         p.toml
