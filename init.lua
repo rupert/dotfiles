@@ -8,7 +8,7 @@ require("blink.cmp").setup({
 require("gitsigns").setup({
   current_line_blame = true,
   on_attach = function (bufnr)
-    local gitsigns = require('gitsigns')
+    local gitsigns = require("gitsigns")
 
     local function map(mode, l, r, opts)
       opts = opts or {}
@@ -16,31 +16,31 @@ require("gitsigns").setup({
       vim.keymap.set(mode, l, r, opts)
     end
 
-    map('n', ']c', function ()
+    map("n", "]c", function ()
       if vim.wo.diff then
-        vim.cmd.normal({ ']c', bang = true })
+        vim.cmd.normal({ "]c", bang = true })
       else
-        gitsigns.nav_hunk('next')
+        gitsigns.nav_hunk("next")
       end
     end)
 
-    map('n', '[c', function ()
+    map("n", "[c", function ()
       if vim.wo.diff then
-        vim.cmd.normal({ '[c', bang = true })
+        vim.cmd.normal({ "[c", bang = true })
       else
-        gitsigns.nav_hunk('prev')
+        gitsigns.nav_hunk("prev")
       end
     end)
 
-    map('n', '<leader>hs', gitsigns.stage_hunk)
-    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map("n", "<leader>hs", gitsigns.stage_hunk)
+    map("n", "<leader>hr", gitsigns.reset_hunk)
 
-    map('v', '<leader>hs', function ()
-      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    map("v", "<leader>hs", function ()
+      gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end)
 
-    map('v', '<leader>hr', function ()
-      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    map("v", "<leader>hr", function ()
+      gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
     end)
   end
 })
@@ -51,7 +51,7 @@ require("neotest").setup({
   }
 })
 
-require('telescope').load_extension('frecency')
+require("telescope").load_extension("frecency")
 
 vim.lsp.config("eslint", {
   settings = {
@@ -61,12 +61,12 @@ vim.lsp.config("eslint", {
   }
 })
 
-vim.lsp.config('tsgo', {
-  cmd = { 'tsgo', '--lsp', '--stdio' },
-  cmd_env = { GOMEMLIMIT = '8GiB' }
+vim.lsp.config("tsgo", {
+  cmd = { "tsgo", "--lsp", "--stdio" },
+  cmd_env = { GOMEMLIMIT = "8GiB" }
 })
 
-vim.lsp.config('emmylua_ls', {
+vim.lsp.config("emmylua_ls", {
   settings = {
     emmylua = {
       workspace = {
@@ -78,15 +78,15 @@ vim.lsp.config('emmylua_ls', {
 
 vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp", "oxfmt", "emmylua_ls" })
 
-local lsp_group = vim.api.nvim_create_augroup('my.lsp', { clear = true })
+local lsp_group = vim.api.nvim_create_augroup("my.lsp", { clear = true })
 
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
   group = lsp_group,
   callback = function (event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf })
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf })
 
     if client.name == "eslint" then
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -101,8 +101,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return
     end
 
-    if client:supports_method('textDocument/formatting') then
-      vim.api.nvim_create_autocmd('BufWritePre', {
+    if client:supports_method("textDocument/formatting") then
+      vim.api.nvim_create_autocmd("BufWritePre", {
         group = lsp_group,
         buffer = event.buf,
         callback = function ()
@@ -113,8 +113,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('my.treesitter', { clear = true }),
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("my.treesitter", { clear = true }),
   callback = function (args) pcall(vim.treesitter.start, args.buf) end
 })
 
@@ -149,5 +149,5 @@ vim.keymap.set("n", "<leader>tT", function () neotest.run.run(vim.uv.cwd()) end,
 vim.keymap.set("n", "<leader>tw", function () neotest.watch.toggle(vim.fn.expand("%")) end, { desc = "Toggle Watch" })
 
 local illuminate = require("illuminate")
-vim.keymap.set('n', '[r', illuminate.goto_prev_reference, { desc = "Prev reference" })
-vim.keymap.set('n', ']r', illuminate.goto_next_reference, { desc = "Next reference" })
+vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Prev reference" })
+vim.keymap.set("n", "]r", illuminate.goto_next_reference, { desc = "Next reference" })
