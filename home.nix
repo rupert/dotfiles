@@ -326,6 +326,7 @@
     enable = true;
 
     extraPackages = with pkgs; [
+      emmylua-ls
       nixd
       nixfmt
       (typescript-go.overrideAttrs (old: {

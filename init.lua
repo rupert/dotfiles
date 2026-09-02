@@ -2,12 +2,12 @@ vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 
 require("blink.cmp").setup({
-  keymap = { preset = "super-tab" },
+  keymap = { preset = "super-tab" }
 })
 
 require("gitsigns").setup({
   current_line_blame = true,
-  on_attach = function(bufnr)
+  on_attach = function (bufnr)
     local gitsigns = require('gitsigns')
 
     local function map(mode, l, r, opts)
@@ -16,17 +16,17 @@ require("gitsigns").setup({
       vim.keymap.set(mode, l, r, opts)
     end
 
-    map('n', ']c', function()
+    map('n', ']c', function ()
       if vim.wo.diff then
-        vim.cmd.normal({']c', bang = true})
+        vim.cmd.normal({ ']c', bang = true })
       else
         gitsigns.nav_hunk('next')
       end
     end)
 
-    map('n', '[c', function()
+    map('n', '[c', function ()
       if vim.wo.diff then
-        vim.cmd.normal({'[c', bang = true})
+        vim.cmd.normal({ '[c', bang = true })
       else
         gitsigns.nav_hunk('prev')
       end
@@ -35,11 +35,11 @@ require("gitsigns").setup({
     map('n', '<leader>hs', gitsigns.stage_hunk)
     map('n', '<leader>hr', gitsigns.reset_hunk)
 
-    map('v', '<leader>hs', function()
+    map('v', '<leader>hs', function ()
       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end)
 
-    map('v', '<leader>hr', function()
+    map('v', '<leader>hr', function ()
       gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end)
   end
@@ -57,22 +57,32 @@ vim.lsp.config("eslint", {
   settings = {
     format = { enable = true },
     workingDirectory = { mode = "auto" },
-    codeActionOnSave = { enable = true, mode = "problems" },
-  },
+    codeActionOnSave = { enable = true, mode = "problems" }
+  }
 })
 
 vim.lsp.config('tsgo', {
   cmd = { 'tsgo', '--lsp', '--stdio' },
-  cmd_env = { GOMEMLIMIT = '8GiB' },
+  cmd_env = { GOMEMLIMIT = '8GiB' }
 })
 
-vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp", "oxfmt" })
+vim.lsp.config('emmylua_ls', {
+  settings = {
+    emmylua = {
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("lua/", true)
+      }
+    }
+  }
+})
+
+vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp", "oxfmt", "emmylua_ls" })
 
 local lsp_group = vim.api.nvim_create_augroup('my.lsp', { clear = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_group,
-  callback = function(event)
+  callback = function (event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
@@ -82,7 +92,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = lsp_group,
         buffer = event.buf,
-        command = "LspEslintFixAll",
+        command = "LspEslintFixAll"
       })
       return
     end
@@ -95,17 +105,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.api.nvim_create_autocmd('BufWritePre', {
         group = lsp_group,
         buffer = event.buf,
-        callback = function()
+        callback = function ()
           vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
-        end,
+        end
       })
     end
-  end,
+  end
 })
 
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('my.treesitter', { clear = true }),
-  callback = function(args) pcall(vim.treesitter.start, args.buf) end,
+  callback = function (args) pcall(vim.treesitter.start, args.buf) end
 })
 
 vim.diagnostic.config({ virtual_text = true })
@@ -117,7 +127,7 @@ vim.keymap.set("n", "<leader>ff", telescope.find_files)
 vim.keymap.set("n", "<leader>fg", telescope.live_grep)
 vim.keymap.set("n", "<leader>fb", telescope.buffers)
 vim.keymap.set("n", "<leader>fh", telescope.help_tags)
-vim.keymap.set("n", "<leader>fr", function()
+vim.keymap.set("n", "<leader>fr", function ()
   require("telescope").extensions.frecency.frecency({ workspace = "CWD" })
 end)
 
@@ -127,16 +137,16 @@ vim.keymap.set("n", "gri", telescope.lsp_implementations, { desc = "Implementati
 vim.keymap.set("n", "grt", telescope.lsp_type_definitions, { desc = "Type definitions" })
 
 local neotest = require("neotest")
-vim.keymap.set("n", "<leader>ta", function() neotest.run.attach() end, { desc = "Attach to Test" })
-vim.keymap.set("n", "<leader>tl", function() neotest.run.run_last() end, { desc = "Run Last" })
-vim.keymap.set("n", "<leader>to", function() neotest.output.open({ enter = true }) end, { desc = "Show Output" })
-vim.keymap.set("n", "<leader>tO", function() neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
-vim.keymap.set("n", "<leader>tr", function() neotest.run.run() end, { desc = "Run Nearest" })
-vim.keymap.set("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle Summary" })
-vim.keymap.set("n", "<leader>tS", function() neotest.run.stop() end, { desc = "Stop" })
-vim.keymap.set("n", "<leader>tt", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Run File" })
-vim.keymap.set("n", "<leader>tT", function() neotest.run.run(vim.uv.cwd()) end, { desc = "Run All Test Files" })
-vim.keymap.set("n", "<leader>tw", function() neotest.watch.toggle(vim.fn.expand("%")) end, { desc = "Toggle Watch" })
+vim.keymap.set("n", "<leader>ta", function () neotest.run.attach() end, { desc = "Attach to Test" })
+vim.keymap.set("n", "<leader>tl", function () neotest.run.run_last() end, { desc = "Run Last" })
+vim.keymap.set("n", "<leader>to", function () neotest.output.open({ enter = true }) end, { desc = "Show Output" })
+vim.keymap.set("n", "<leader>tO", function () neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
+vim.keymap.set("n", "<leader>tr", function () neotest.run.run() end, { desc = "Run Nearest" })
+vim.keymap.set("n", "<leader>ts", function () neotest.summary.toggle() end, { desc = "Toggle Summary" })
+vim.keymap.set("n", "<leader>tS", function () neotest.run.stop() end, { desc = "Stop" })
+vim.keymap.set("n", "<leader>tt", function () neotest.run.run(vim.fn.expand("%")) end, { desc = "Run File" })
+vim.keymap.set("n", "<leader>tT", function () neotest.run.run(vim.uv.cwd()) end, { desc = "Run All Test Files" })
+vim.keymap.set("n", "<leader>tw", function () neotest.watch.toggle(vim.fn.expand("%")) end, { desc = "Toggle Watch" })
 
 local illuminate = require("illuminate")
 vim.keymap.set('n', '[r', illuminate.goto_prev_reference, { desc = "Prev reference" })
