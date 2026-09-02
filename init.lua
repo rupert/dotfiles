@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 
-require("blink.cmp").setup({
-  keymap = { preset = "super-tab" }
-})
+require("blink.cmp").setup(
+  { keymap = { preset = "super-tab" } } --[[@as blink.cmp.Config]]
+)
 
 require("gitsigns").setup({
   current_line_blame = true,
@@ -45,11 +45,14 @@ require("gitsigns").setup({
   end
 })
 
-require("neotest").setup({
-  adapters = {
-    require("neotest-vitest")
-  }
-})
+require("neotest").setup(
+  ---@diagnostic disable-next-line: missing-fields
+  {
+    adapters = {
+      require("neotest-vitest")
+    }
+  } --[[@as neotest.Config]]
+)
 
 require("telescope").load_extension("frecency")
 
@@ -144,9 +147,29 @@ vim.keymap.set("n", "<leader>tO", function () neotest.output_panel.toggle() end,
 vim.keymap.set("n", "<leader>tr", function () neotest.run.run() end, { desc = "Run Nearest" })
 vim.keymap.set("n", "<leader>ts", function () neotest.summary.toggle() end, { desc = "Toggle Summary" })
 vim.keymap.set("n", "<leader>tS", function () neotest.run.stop() end, { desc = "Stop" })
-vim.keymap.set("n", "<leader>tt", function () neotest.run.run(vim.fn.expand("%")) end, { desc = "Run File" })
+vim.keymap.set(
+  "n", "<leader>tt",
+  function ()
+    neotest.run.run(
+      vim.fn.expand("%") --[[@as string]]
+    )
+  end,
+  {
+    desc = "Run File"
+  }
+)
 vim.keymap.set("n", "<leader>tT", function () neotest.run.run(vim.uv.cwd()) end, { desc = "Run All Test Files" })
-vim.keymap.set("n", "<leader>tw", function () neotest.watch.toggle(vim.fn.expand("%")) end, { desc = "Toggle Watch" })
+vim.keymap.set(
+  "n", "<leader>tw",
+  function ()
+    neotest.watch.toggle(
+      vim.fn.expand("%") --[[@as string]]
+    )
+  end,
+  {
+    desc = "Toggle Watch"
+  }
+)
 
 local illuminate = require("illuminate")
 vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Prev reference" })
