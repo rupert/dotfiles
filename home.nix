@@ -83,14 +83,14 @@
       EDITOR = "nvim";
       RESTIC_PASSWORD_COMMAND = "security find-generic-password -s restic -w";
     }
-    // (lib.mkIf pkgs.stdenv.isDarwin {
+    // (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
       SSH_AUTH_SOCK = "$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
     });
 
     shellAliases = {
       lg = "lazygit";
     }
-    // (lib.mkIf pkgs.stdenv.isLinux {
+    // (lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       ls = "ls --color=auto";
     });
 
