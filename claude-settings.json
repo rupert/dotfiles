@@ -15,6 +15,7 @@
     "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
+      "strictAllowlist": true,
       "allowedDomains": [
         "api.github.com",
         "github.com",
