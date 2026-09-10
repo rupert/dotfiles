@@ -64,6 +64,7 @@
       sqlite-interactive
       ssm-session-manager-plugin
       tree
+      typescript
       uv
       watch
       watchexec
@@ -329,7 +330,7 @@
       emmylua-ls
       nixd
       nixfmt
-      typescript-go
+      typescript
       typos-lsp
       vscode-langservers-extracted
     ];

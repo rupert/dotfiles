@@ -65,7 +65,7 @@ vim.lsp.config("eslint", {
 })
 
 vim.lsp.config("tsgo", {
-  cmd = { "tsgo", "--lsp", "--stdio" },
+  cmd = { "tsc", "--lsp", "--stdio" },
   cmd_env = { GOMEMLIMIT = "8GiB" }
 })
 
