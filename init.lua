@@ -125,52 +125,58 @@ vim.diagnostic.config({ virtual_text = true })
 
 vim.cmd.colorscheme("tokyonight")
 
-local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescope.find_files)
-vim.keymap.set("n", "<leader>fg", telescope.live_grep)
-vim.keymap.set("n", "<leader>fb", telescope.buffers)
-vim.keymap.set("n", "<leader>fh", telescope.help_tags)
-vim.keymap.set("n", "<leader>fr", function ()
-  require("telescope").extensions.frecency.frecency({ workspace = "CWD" })
-end)
+do
+  local telescope = require("telescope.builtin")
+  vim.keymap.set("n", "<leader>ff", telescope.find_files)
+  vim.keymap.set("n", "<leader>fg", telescope.live_grep)
+  vim.keymap.set("n", "<leader>fb", telescope.buffers)
+  vim.keymap.set("n", "<leader>fh", telescope.help_tags)
+  vim.keymap.set("n", "<leader>fr", function ()
+    require("telescope").extensions.frecency.frecency({ workspace = "CWD" })
+  end)
 
-vim.keymap.set("n", "gO", telescope.lsp_document_symbols, { desc = "Document symbols" })
-vim.keymap.set("n", "grr", telescope.lsp_references, { desc = "References" })
-vim.keymap.set("n", "gri", telescope.lsp_implementations, { desc = "Implementations" })
-vim.keymap.set("n", "grt", telescope.lsp_type_definitions, { desc = "Type definitions" })
+  vim.keymap.set("n", "gO", telescope.lsp_document_symbols, { desc = "Document symbols" })
+  vim.keymap.set("n", "grr", telescope.lsp_references, { desc = "References" })
+  vim.keymap.set("n", "gri", telescope.lsp_implementations, { desc = "Implementations" })
+  vim.keymap.set("n", "grt", telescope.lsp_type_definitions, { desc = "Type definitions" })
+end
 
-local neotest = require("neotest")
-vim.keymap.set("n", "<leader>ta", function () neotest.run.attach() end, { desc = "Attach to Test" })
-vim.keymap.set("n", "<leader>tl", function () neotest.run.run_last() end, { desc = "Run Last" })
-vim.keymap.set("n", "<leader>to", function () neotest.output.open({ enter = true }) end, { desc = "Show Output" })
-vim.keymap.set("n", "<leader>tO", function () neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
-vim.keymap.set("n", "<leader>tr", function () neotest.run.run() end, { desc = "Run Nearest" })
-vim.keymap.set("n", "<leader>ts", function () neotest.summary.toggle() end, { desc = "Toggle Summary" })
-vim.keymap.set("n", "<leader>tS", function () neotest.run.stop() end, { desc = "Stop" })
-vim.keymap.set(
-  "n", "<leader>tt",
-  function ()
-    neotest.run.run(
-      vim.fn.expand("%") --[[@as string]]
-    )
-  end,
-  {
-    desc = "Run File"
-  }
-)
-vim.keymap.set("n", "<leader>tT", function () neotest.run.run(vim.uv.cwd()) end, { desc = "Run All Test Files" })
-vim.keymap.set(
-  "n", "<leader>tw",
-  function ()
-    neotest.watch.toggle(
-      vim.fn.expand("%") --[[@as string]]
-    )
-  end,
-  {
-    desc = "Toggle Watch"
-  }
-)
+do
+  local neotest = require("neotest")
+  vim.keymap.set("n", "<leader>ta", function () neotest.run.attach() end, { desc = "Attach to Test" })
+  vim.keymap.set("n", "<leader>tl", function () neotest.run.run_last() end, { desc = "Run Last" })
+  vim.keymap.set("n", "<leader>to", function () neotest.output.open({ enter = true }) end, { desc = "Show Output" })
+  vim.keymap.set("n", "<leader>tO", function () neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
+  vim.keymap.set("n", "<leader>tr", function () neotest.run.run() end, { desc = "Run Nearest" })
+  vim.keymap.set("n", "<leader>ts", function () neotest.summary.toggle() end, { desc = "Toggle Summary" })
+  vim.keymap.set("n", "<leader>tS", function () neotest.run.stop() end, { desc = "Stop" })
+  vim.keymap.set(
+    "n", "<leader>tt",
+    function ()
+      neotest.run.run(
+        vim.fn.expand("%") --[[@as string]]
+      )
+    end,
+    {
+      desc = "Run File"
+    }
+  )
+  vim.keymap.set("n", "<leader>tT", function () neotest.run.run(vim.uv.cwd()) end, { desc = "Run All Test Files" })
+  vim.keymap.set(
+    "n", "<leader>tw",
+    function ()
+      neotest.watch.toggle(
+        vim.fn.expand("%") --[[@as string]]
+      )
+    end,
+    {
+      desc = "Toggle Watch"
+    }
+  )
+end
 
-local illuminate = require("illuminate")
-vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Prev reference" })
-vim.keymap.set("n", "]r", illuminate.goto_next_reference, { desc = "Next reference" })
+do
+  local illuminate = require("illuminate")
+  vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Prev reference" })
+  vim.keymap.set("n", "]r", illuminate.goto_next_reference, { desc = "Next reference" })
+end
