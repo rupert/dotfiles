@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 999
 
 require("blink.cmp").setup(
   { keymap = { preset = "super-tab" } } --[[@as blink.cmp.Config]]
