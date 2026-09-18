@@ -3,19 +3,27 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "fable[1m]",
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "healthcare@healthcare": true
+  },
+  "extraKnownMarketplaces": {
+    "healthcare": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/healthcare"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
-      "strictAllowlist": true,
       "allowedDomains": [
         "api.github.com",
         "github.com",
@@ -26,6 +34,7 @@
         "*.npmjs.org"
       ],
       "deniedDomains": [],
+      "strictAllowlist": true,
       "allowAllUnixSockets": true,
       "allowLocalBinding": true
     },
@@ -47,5 +56,6 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "tui": "fullscreen",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
