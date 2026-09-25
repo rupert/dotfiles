@@ -425,10 +425,6 @@
     baseIndex = 1;
     historyLimit = 10000;
     keyMode = "vi";
-
-    extraConfig = ''
-      bind r source-file ~/.config/tmux/tmux.conf
-    '';
   };
 
   programs.ssh = {
