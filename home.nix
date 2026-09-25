@@ -132,7 +132,6 @@
   programs.go.enable = true;
   programs.home-manager.enable = true;
   programs.htop.enable = true;
-  programs.lazygit.enable = true;
   programs.zoxide.enable = true;
 
   programs.claude-code = {
