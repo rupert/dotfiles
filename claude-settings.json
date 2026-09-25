@@ -3,7 +3,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "fable[1m]",
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
