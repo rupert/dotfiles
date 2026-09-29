@@ -90,6 +90,28 @@ hs.hotkey.bind(hyper, "M", function()
   win:setFrame(f)
 end)
 
+hs.hotkey.bind(hyper, "S", function()
+  local win = hs.window.focusedWindow()
+
+  if (win == nil) then
+    return
+  end
+
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  local height = max.h * 0.8
+
+  local width = height * (4 / 3)
+
+  f.x = max.x + (max.w - width) / 2
+  f.y = max.y + (max.h - height) / 2
+  f.w = width
+  f.h = height
+  win:setFrame(f)
+end)
+
 hs.hotkey.bind(hyper, "N", function()
   local win = hs.window.focusedWindow()
 
