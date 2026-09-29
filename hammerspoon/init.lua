@@ -103,13 +103,10 @@ hs.hotkey.bind(hyper, "S", function()
 
   local height = max.h * 0.8
 
-  local width = height * (4 / 3)
-
-  f.x = max.x + (max.w - width) / 2
-  f.y = max.y + (max.h - height) / 2
-  f.w = width
+  f.w = height * (4 / 3)
   f.h = height
   win:setFrame(f)
+  win:centerOnScreen()
 end)
 
 hs.hotkey.bind(hyper, "N", function()
