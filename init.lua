@@ -67,11 +67,6 @@ vim.lsp.config("eslint", {
   }
 })
 
-vim.lsp.config("tsgo", {
-  cmd = { "tsc", "--lsp", "--stdio" },
-  cmd_env = { GOMEMLIMIT = "8GiB" }
-})
-
 vim.lsp.config("emmylua_ls", {
   settings = {
     emmylua = {
@@ -82,7 +77,7 @@ vim.lsp.config("emmylua_ls", {
   }
 })
 
-vim.lsp.enable({ "tsgo", "eslint", "nixd", "typos_lsp", "oxfmt", "emmylua_ls" })
+vim.lsp.enable({ "tsc", "eslint", "nixd", "typos_lsp", "oxfmt", "emmylua_ls" })
 
 local lsp_group = vim.api.nvim_create_augroup("my.lsp", { clear = true })
 
