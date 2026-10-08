@@ -178,3 +178,5 @@ do
   vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Prev reference" })
   vim.keymap.set("n", "]r", illuminate.goto_next_reference, { desc = "Next reference" })
 end
+
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })

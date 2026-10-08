@@ -241,6 +241,8 @@
   programs.lazygit = {
     enable = true;
 
+    settings.os.editPreset = "nvim-remote";
+
     settings.gui = {
       nerdFontsVersion = "3";
 
@@ -370,6 +372,7 @@
       blink-cmp
       diffview-nvim
       gitsigns-nvim
+      lazygit-nvim
       neotest
       neotest-vitest
       nvim-lspconfig
