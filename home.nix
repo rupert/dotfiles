@@ -336,6 +336,10 @@
 
       # TODO sessionPath does not work in VS Code integrated terminal
       export PATH="$HOME/.npm/bin:$PATH"
+
+      if (( $+commands[moon] )); then
+        source <(moon completions --shell zsh)
+      fi
     '';
 
     envExtra = ''
