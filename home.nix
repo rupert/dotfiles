@@ -404,7 +404,6 @@
       vim-illuminate
       vim-nix
       vim-rhubarb
-      vim-sleuth
     ];
 
     viAlias = true;

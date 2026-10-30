@@ -116,7 +116,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("my.treesitter", { clear = true }),
-  callback = function (args) pcall(vim.treesitter.start, args.buf) end
+  callback = function (args)
+    pcall(vim.treesitter.start, args.buf)
+    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end
 })
 
 vim.diagnostic.config({ virtual_text = true })
