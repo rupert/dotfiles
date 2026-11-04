@@ -49,6 +49,7 @@
       nixpkgs-fmt
       openjdk17
       parallel
+      pi
       postgresql
       proto
       protobuf
