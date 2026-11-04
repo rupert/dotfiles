@@ -183,3 +183,15 @@ do
 end
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+vim.api.nvim_create_user_command("DiffsHub", function ()
+  vim.system({ "gh", "pr", "view", "--json", "url", "--jq", ".url" }, { text = true }, function (result)
+    vim.schedule(function ()
+      if result.code ~= 0 then
+        vim.notify(vim.trim(result.stderr), vim.log.levels.ERROR)
+        return
+      end
+      vim.ui.open((vim.trim(result.stdout):gsub("^https://github%.com/", "https://diffshub.com/")))
+    end)
+  end)
+end, { desc = "Open current PR in DiffsHub" })
