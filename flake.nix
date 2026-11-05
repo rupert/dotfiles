@@ -23,6 +23,7 @@
         modules = [
           ./home.nix
           { nixpkgs.overlays = [ pi.overlays.default ]; }
+          { _module.args.pi-src = pi; }
         ];
       };
     };

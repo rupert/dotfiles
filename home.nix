@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  pi-src,
   ...
 }:
 {
@@ -53,6 +54,7 @@
       postgresql
       proto
       protobuf
+      qemu
       pwgen
       redis
       restic
@@ -119,6 +121,8 @@
     file.".sqliterc".text = ''
       .mode table
     '';
+
+    file.".pi/agent/extensions/gondolin".source = pkgs.callPackage ./pkgs/pi-gondolin.nix { inherit pi-src; };
 
     file.".hammerspoon/init.lua".source = ./hammerspoon/init.lua;
 
