@@ -30,7 +30,7 @@
       exiftool
       fd
       ffmpeg
-      (callPackage ./pkgs/gondolin.nix { })
+      (callPackage ./pkgs/gondolin { })
       grex
       hledger
       hledger-interest
@@ -123,7 +123,7 @@
       .mode table
     '';
 
-    file.".pi/agent/extensions/gondolin".source = pkgs.callPackage ./pkgs/pi-gondolin.nix { inherit pi-src; };
+    file.".pi/agent/extensions/gondolin".source = pkgs.callPackage ./pkgs/pi-gondolin { };
 
     file.".hammerspoon/init.lua".source = ./hammerspoon/init.lua;
 

@@ -7,10 +7,10 @@
 buildNpmPackage {
   pname = "gondolin";
   version =
-    (builtins.fromJSON (builtins.readFile ./gondolin/package.json))
+    (builtins.fromJSON (builtins.readFile ./package.json))
     .dependencies."@earendil-works/gondolin";
 
-  src = ./gondolin;
+  src = ./.;
 
   npmDepsHash = "sha256-XdKZseolWQbgzlSPX3AYG933qlqThR7wMYaKByjAKCE=";
 

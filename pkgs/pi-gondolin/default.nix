@@ -1,6 +1,6 @@
-{ buildNpmPackage, pi-src }:
+{ buildNpmPackage }:
 let
-  src = "${pi-src}/packages/coding-agent/examples/extensions/gondolin";
+  src = ./.;
 in
 buildNpmPackage {
   pname = "pi-extension-gondolin";
