@@ -22,7 +22,7 @@
 import { execFileSync } from "node:child_process";
 import os from "node:os";
 import path from "node:path";
-import { createHttpHooks, RealFSProvider, VM } from "@earendil-works/gondolin";
+import { createHttpHooks, RealFSProvider, ShadowProvider, VM } from "@earendil-works/gondolin";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import {
 	type BashOperations,
@@ -404,6 +404,12 @@ export default function(pi: ExtensionAPI) {
 				},
 			},
 		});
+
+		const workspaceFsProvider = new ShadowProvider(new RealFSProvider(localCwd), {
+			shouldShadow: ({ path }) => path.endsWith("/node_modules"),
+			writeMode: "tmpfs",
+		});
+
 		const created = await VM.create({
 			sessionLabel: `pi ${path.basename(localCwd)}`,
 			sandbox: { imagePath: GONDOLIN_IMAGE_PATH },
@@ -411,7 +417,7 @@ export default function(pi: ExtensionAPI) {
 			env,
 			vfs: {
 				mounts: {
-					[GUEST_WORKSPACE]: new RealFSProvider(localCwd),
+					[GUEST_WORKSPACE]: workspaceFsProvider,
 				},
 			},
 		});
