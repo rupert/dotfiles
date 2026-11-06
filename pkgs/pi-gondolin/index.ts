@@ -396,7 +396,7 @@ export default function(pi: ExtensionAPI) {
 	async function startVm(ctx?: ExtensionContext): Promise<VM> {
 		ctx?.ui.setStatus("gondolin", ctx.ui.theme.fg("accent", `Gondolin: starting ${GUEST_WORKSPACE}`));
 		const { httpHooks, env } = createHttpHooks({
-			allowedHosts: ["api.github.com", "*.github.com"],
+			allowedHosts: ["api.github.com", "*.github.com", "*.npmjs.org"],
 			secrets: {
 				GITHUB_TOKEN: {
 					hosts: ["api.github.com"],
