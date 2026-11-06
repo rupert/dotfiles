@@ -19,6 +19,7 @@
  *   - QEMU installed (for example, `brew install qemu` on macOS)
  */
 
+import os from "node:os";
 import path from "node:path";
 import { RealFSProvider, VM } from "@earendil-works/gondolin";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
@@ -46,6 +47,7 @@ import {
 
 const GUEST_WORKSPACE = "/workspace";
 const DEFAULT_GREP_LIMIT = 100;
+const GONDOLIN_IMAGE_PATH = path.join(os.homedir(), ".pi/agent/extensions/gondolin/img");
 
 type TextToolResult<TDetails> = {
 	content: Array<{ type: "text"; text: string }>;
@@ -334,9 +336,9 @@ function createGondolinBashOps(vm: VM, localCwd: string, shellPath: string): Bas
 			const timer =
 				timeout && timeout > 0
 					? setTimeout(() => {
-							timedOut = true;
-							controller.abort();
-						}, timeout * 1000)
+						timedOut = true;
+						controller.abort();
+					}, timeout * 1000)
 					: undefined;
 
 			try {
@@ -362,7 +364,7 @@ function createGondolinBashOps(vm: VM, localCwd: string, shellPath: string): Bas
 	};
 }
 
-export default function (pi: ExtensionAPI) {
+export default function(pi: ExtensionAPI) {
 	const localCwd = process.cwd();
 	const localRead = createReadTool(localCwd);
 	const localWrite = createWriteTool(localCwd);
@@ -380,6 +382,7 @@ export default function (pi: ExtensionAPI) {
 		ctx?.ui.setStatus("gondolin", ctx.ui.theme.fg("accent", `Gondolin: starting ${GUEST_WORKSPACE}`));
 		const created = await VM.create({
 			sessionLabel: `pi ${path.basename(localCwd)}`,
+			sandbox: { imagePath: GONDOLIN_IMAGE_PATH },
 			vfs: {
 				mounts: {
 					[GUEST_WORKSPACE]: new RealFSProvider(localCwd),

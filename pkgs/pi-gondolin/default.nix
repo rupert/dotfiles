@@ -1,6 +1,7 @@
-{ buildNpmPackage }:
+{ buildNpmPackage, callPackage }:
 let
   src = ./.;
+  gondolin-img = callPackage ../gondolin-img { };
 in
 buildNpmPackage {
   pname = "pi-extension-gondolin";
@@ -12,6 +13,7 @@ buildNpmPackage {
     runHook preInstall
     mkdir -p $out
     cp -r index.ts package.json node_modules $out/
+    cp -r ${gondolin-img} $out/img
     runHook postInstall
   '';
 }
