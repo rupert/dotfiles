@@ -30,6 +30,7 @@
       exiftool
       fd
       ffmpeg
+      (callPackage ./pkgs/gondolin.nix { })
       grex
       hledger
       hledger-interest
