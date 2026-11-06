@@ -19,9 +19,10 @@
  *   - QEMU installed (for example, `brew install qemu` on macOS)
  */
 
+import { execFileSync } from "node:child_process";
 import os from "node:os";
 import path from "node:path";
-import { RealFSProvider, VM } from "@earendil-works/gondolin";
+import { createHttpHooks, RealFSProvider, VM } from "@earendil-works/gondolin";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import {
 	type BashOperations,
@@ -48,6 +49,20 @@ import {
 const GUEST_WORKSPACE = "/workspace";
 const DEFAULT_GREP_LIMIT = 100;
 const GONDOLIN_IMAGE_PATH = path.join(os.homedir(), ".pi/agent/extensions/gondolin/img");
+
+// Fetch a GitHub token from the host's gh CLI.
+function getGithubToken(): string {
+	let token: string;
+	try {
+		token = execFileSync("gh", ["auth", "token"], { encoding: "utf8" }).trim();
+	} catch (error) {
+		throw new Error(
+			`Failed to run "gh auth token": ${error instanceof Error ? error.message : String(error)}`,
+		);
+	}
+	if (!token) throw new Error('"gh auth token" returned an empty token');
+	return token;
+}
 
 type TextToolResult<TDetails> = {
 	content: Array<{ type: "text"; text: string }>;
@@ -380,9 +395,20 @@ export default function(pi: ExtensionAPI) {
 
 	async function startVm(ctx?: ExtensionContext): Promise<VM> {
 		ctx?.ui.setStatus("gondolin", ctx.ui.theme.fg("accent", `Gondolin: starting ${GUEST_WORKSPACE}`));
+		const { httpHooks, env } = createHttpHooks({
+			allowedHosts: ["api.github.com"],
+			secrets: {
+				GITHUB_TOKEN: {
+					hosts: ["api.github.com"],
+					value: getGithubToken(),
+				},
+			},
+		});
 		const created = await VM.create({
 			sessionLabel: `pi ${path.basename(localCwd)}`,
 			sandbox: { imagePath: GONDOLIN_IMAGE_PATH },
+			httpHooks,
+			env,
 			vfs: {
 				mounts: {
 					[GUEST_WORKSPACE]: new RealFSProvider(localCwd),
