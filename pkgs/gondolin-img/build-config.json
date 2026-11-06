@@ -27,5 +27,13 @@
   },
   "rootfs": {
     "label": "gondolin-root"
+  },
+  "postBuild": {
+    "copy": [
+      {
+        "src": "./gitconfig",
+        "dest": "/etc/gitconfig"
+      }
+    ]
   }
 }
