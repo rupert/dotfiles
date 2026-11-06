@@ -2,6 +2,15 @@
   buildNpmPackage,
   nodejs_22,
   makeWrapper,
+  lib,
+  which,
+  e2fsprogs,
+  lz4,
+  curl,
+  cpio,
+  gzip,
+  gnutar,
+  cacert,
 }:
 
 buildNpmPackage {
@@ -27,7 +36,20 @@ buildNpmPackage {
     cp -r node_modules $out/lib/gondolin/
 
     makeWrapper ${nodejs_22}/bin/node $out/bin/gondolin \
-      --add-flags "$out/lib/gondolin/node_modules/@earendil-works/gondolin/dist/bin/gondolin.js"
+      --add-flags "$out/lib/gondolin/node_modules/@earendil-works/gondolin/dist/bin/gondolin.js" \
+      --prefix PATH : ${
+        lib.makeBinPath [
+          which
+          e2fsprogs
+          lz4
+          curl
+          cpio
+          gzip
+          gnutar
+        ]
+      } \
+      --set SSL_CERT_FILE "${cacert}/etc/ssl/certs/ca-bundle.crt" \
+      --set NODE_EXTRA_CA_CERTS "${cacert}/etc/ssl/certs/ca-bundle.crt"
 
     runHook postInstall
   '';

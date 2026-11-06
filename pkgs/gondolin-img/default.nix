@@ -1,15 +1,6 @@
 {
   stdenvNoCC,
-  lib,
   callPackage,
-  which,
-  e2fsprogs,
-  lz4,
-  curl,
-  cpio,
-  gzip,
-  gnutar,
-  cacert,
 }:
 
 let
@@ -23,19 +14,7 @@ stdenvNoCC.mkDerivation {
 
   nativeBuildInputs = [
     gondolin
-    which
-    e2fsprogs
-    lz4
-    curl
-    cpio
-    gzip
-    gnutar
-    cacert
   ];
-
-  # The build downloads Alpine packages and the libkrunfw kernel, so it needs
-  # network access. This relies on `sandbox = false` (the default on darwin).
-  SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
   buildPhase = ''
     runHook preBuild
@@ -52,6 +31,6 @@ stdenvNoCC.mkDerivation {
   dontFixup = true;
 
   meta = {
-    description = "Prebuilt Gondolin guest image assets (Alpine + git/gh)";
+    description = "Gondolin guest image";
   };
 }
